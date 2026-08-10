@@ -119,8 +119,9 @@ function initFiltros(status, itens) {
   const categorias = valoresUnicos(itensDoStatus, (i) => i.categoria);
   const anos = valoresUnicos(itensDoStatus, (i) => extrairAno(i.lancamento)).sort().reverse();
 
-  // Se não há itens suficientes pra filtrar (0 ou 1), nem mostra a barra.
-  if (itensDoStatus.length < 2) {
+  // Só esconde a barra se a aba estiver vazia — com 1+ item, filtrar já faz sentido
+  // (o próprio dono vai cadastrando mais itens e os filtros passam a valer mais).
+  if (itensDoStatus.length === 0) {
     container.innerHTML = "";
     renderCards(`grid-${status}`, itensDoStatus, "Nenhum item nesta categoria ainda.");
     return;
