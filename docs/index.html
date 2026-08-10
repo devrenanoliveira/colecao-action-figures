@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coleção de Action Figures</title>
+<meta name="description" content="Dashboard da coleção de action figures — itens que já tenho, encomendados e na lista de desejos.">
+<script>try{if(localStorage.getItem('colecaoFiguresDarkMode')==='true')document.body.classList.add('dark')}catch(e){}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <div class="logo" style="font-size:1.4rem; font-weight:800;">Cole<em>ção</em></div>
+    <div class="header-sep"></div>
+    <div class="header-title">Action Figures — Dashboard da Coleção</div>
+  </div>
+  <div class="header-right" style="display:flex; align-items:center; gap:14px;">
+    <div class="header-update">Atualizado em<br><strong id="atualizadoEm">—</strong></div>
+    <button id="darkModeBtn" title="Alternar modo escuro" style="background:none; border:1px solid rgba(255,255,255,.3); color:#fff; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:.85rem;">🌙</button>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="resumo">Resumo</button>
+  <button class="tab-btn" data-tab="tenho">Tenho</button>
+  <button class="tab-btn" data-tab="encomendado">Encomendado</button>
+  <button class="tab-btn" data-tab="quero">Quero</button>
+</nav>
+
+<main>
+
+  <!-- ── ABA RESUMO ─────────────────────────────────────────── -->
+  <section class="tab-panel active" id="tab-resumo">
+    <p class="sec-label">Visão geral</p>
+    <h1 class="sec-title">Minha coleção de action figures</h1>
+    <p class="sec-subtitle">Itens que já tenho, encomendados e na lista de desejos. Clique nas abas acima para ver cada grupo em detalhe.</p>
+
+    <div class="contact-banner">
+      <strong>Interessado em algum item?</strong> Os itens marcados como <strong>Tenho</strong> podem estar disponíveis para negociação — me chame para conversar sobre qualquer peça da coleção.
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card navy">
+        <div class="kpi-label">Total na coleção</div>
+        <div class="kpi-value" id="kpiTotal">—</div>
+        <div class="kpi-sub">itens catalogados</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Tenho</div>
+        <div class="kpi-value" id="kpiTenho">—</div>
+        <div class="kpi-sub">já na coleção</div>
+      </div>
+      <div class="kpi-card gold">
+        <div class="kpi-label">Encomendado</div>
+        <div class="kpi-value" id="kpiEncomendado">—</div>
+        <div class="kpi-sub">a caminho</div>
+      </div>
+      <div class="kpi-card blue">
+        <div class="kpi-label">Quero</div>
+        <div class="kpi-value" id="kpiQuero">—</div>
+        <div class="kpi-sub">lista de desejos</div>
+      </div>
+    </div>
+
+    <div class="chart-grid">
+      <div class="chart-card">
+        <div class="chart-title">Distribuição por status</div>
+        <div class="chart-wrap h260">
+          <canvas id="chartStatus"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Top franquias/séries</div>
+        <div class="chart-wrap h260">
+          <canvas id="chartFranquia"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABA TENHO ──────────────────────────────────────────── -->
+  <section class="tab-panel" id="tab-tenho">
+    <p class="sec-label">Já na coleção</p>
+    <h1 class="sec-title">Tenho</h1>
+    <p class="sec-subtitle">Itens que já fazem parte da coleção.</p>
+    <div class="figure-grid" id="grid-tenho"></div>
+  </section>
+
+  <!-- ── ABA ENCOMENDADO ────────────────────────────────────── -->
+  <section class="tab-panel" id="tab-encomendado">
+    <p class="sec-label">A caminho</p>
+    <h1 class="sec-title">Encomendado</h1>
+    <p class="sec-subtitle">Itens já comprados/encomendados, aguardando chegada.</p>
+    <div class="figure-grid" id="grid-encomendado"></div>
+  </section>
+
+  <!-- ── ABA QUERO ──────────────────────────────────────────── -->
+  <section class="tab-panel" id="tab-quero">
+    <p class="sec-label">Lista de desejos</p>
+    <h1 class="sec-title">Quero</h1>
+    <p class="sec-subtitle">Itens que ainda não tenho, mas gostaria de adicionar à coleção.</p>
+    <div class="figure-grid" id="grid-quero"></div>
+  </section>
+
+</main>
+
+<div id="fetchError" style="display:none; max-width:1440px; margin:0 auto; padding:0 28px 28px;">
+  <div class="empty-state" style="border-color:#FECACA; color:#B91C1C;">
+    Não foi possível carregar os dados da coleção (data.json). Verifique se o arquivo existe e está publicado corretamente.
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

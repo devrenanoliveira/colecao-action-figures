@@ -1,0 +1,57 @@
+{
+  "atualizado_em": "10/08/2026 14:05",
+  "resumo": {
+    "total": 3,
+    "tenho": 1,
+    "encomendado": 1,
+    "quero": 1,
+    "por_categoria": {
+      "Estatua": 2,
+      "Figure Articulada": 1
+    },
+    "por_franquia": {
+      "Dragon Ball Z": 2,
+      "Demon Slayer": 1
+    }
+  },
+  "status_labels": {
+    "tenho": "Tenho",
+    "encomendado": "Encomendado",
+    "quero": "Quero"
+  },
+  "itens": [
+    {
+      "id": 1,
+      "nome": "Son Goku - Figuarts ZERO",
+      "categoria": "Estatua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://example.com/imagens/goku.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/000000",
+      "lancamento": "2019-03",
+      "observacao": "Exemplo - edite ou apague esta linha"
+    },
+    {
+      "id": 2,
+      "nome": "Vegeta - S.H.Figuarts",
+      "categoria": "Figure Articulada",
+      "franquia": "Dragon Ball Z",
+      "status": "encomendado",
+      "imagem_url": "https://example.com/imagens/vegeta.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/000001",
+      "lancamento": "2026-11",
+      "observacao": "Exemplo - edite ou apague esta linha"
+    },
+    {
+      "id": 3,
+      "nome": "Nezuko Kamado - Pop Up Parade",
+      "categoria": "Estatua",
+      "franquia": "Demon Slayer",
+      "status": "quero",
+      "imagem_url": "https://example.com/imagens/nezuko.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/000002",
+      "lancamento": null,
+      "observacao": "Exemplo - edite ou apague esta linha"
+    }
+  ]
+}
