@@ -79,14 +79,99 @@ function escapeHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
-function renderGrid(elId, itens, status) {
+function renderCards(elId, itensFiltrados, mensagemVazio) {
   const el = document.getElementById(elId);
-  const filtrados = itens.filter((i) => i.status === status);
-  if (filtrados.length === 0) {
-    el.innerHTML = `<div class="empty-state">Nenhum item nesta categoria ainda.</div>`;
+  if (itensFiltrados.length === 0) {
+    el.innerHTML = `<div class="empty-state">${mensagemVazio}</div>`;
     return;
   }
-  el.innerHTML = filtrados.map(figureCardHTML).join("");
+  el.innerHTML = itensFiltrados.map(figureCardHTML).join("");
+}
+
+// Extrai o ano (4 dígitos) de um texto livre de lançamento, ex: "2026-04" → "2026".
+function extrairAno(lancamento) {
+  if (!lancamento) return null;
+  const m = String(lancamento).match(/\d{4}/);
+  return m ? m[0] : null;
+}
+
+function valoresUnicos(itensDoStatus, extractor) {
+  const set = new Set();
+  itensDoStatus.forEach((item) => {
+    const v = extractor(item);
+    if (v) set.add(v);
+  });
+  return Array.from(set).sort();
+}
+
+/**
+ * Monta a barra de filtros (Franquia/Linha/Categoria/Ano) de uma aba e liga
+ * os eventos que refiltram o grid correspondente sempre que um select muda.
+ */
+function initFiltros(status, itens) {
+  const itensDoStatus = itens.filter((i) => i.status === status);
+  const containerId = `filtros-${status}`;
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  const franquias = valoresUnicos(itensDoStatus, (i) => i.franquia);
+  const linhas = valoresUnicos(itensDoStatus, (i) => i.linha_produto);
+  const categorias = valoresUnicos(itensDoStatus, (i) => i.categoria);
+  const anos = valoresUnicos(itensDoStatus, (i) => extrairAno(i.lancamento)).sort().reverse();
+
+  // Se não há itens suficientes pra filtrar (0 ou 1), nem mostra a barra.
+  if (itensDoStatus.length < 2) {
+    container.innerHTML = "";
+    renderCards(`grid-${status}`, itensDoStatus, "Nenhum item nesta categoria ainda.");
+    return;
+  }
+
+  const campo = (id, label, opcoes) => `
+    <div class="filtro-grupo">
+      <label class="filtro-label" for="${id}">${label}</label>
+      <select id="${id}" class="filtro-select">
+        <option value="">Todas</option>
+        ${opcoes.map((o) => `<option value="${escapeHtml(o)}">${escapeHtml(o)}</option>`).join("")}
+      </select>
+    </div>`;
+
+  container.innerHTML = `
+    <div class="figure-filters">
+      ${campo(`f-franquia-${status}`, "Franquia", franquias)}
+      ${campo(`f-linha-${status}`, "Linha", linhas)}
+      ${campo(`f-categoria-${status}`, "Categoria", categorias)}
+      ${campo(`f-ano-${status}`, "Ano", anos)}
+      <button type="button" class="filtro-limpar" id="f-limpar-${status}">Limpar filtros</button>
+    </div>`;
+
+  const aplicar = () => {
+    const vFranquia = document.getElementById(`f-franquia-${status}`).value;
+    const vLinha = document.getElementById(`f-linha-${status}`).value;
+    const vCategoria = document.getElementById(`f-categoria-${status}`).value;
+    const vAno = document.getElementById(`f-ano-${status}`).value;
+
+    const filtrados = itensDoStatus.filter((item) => {
+      if (vFranquia && item.franquia !== vFranquia) return false;
+      if (vLinha && item.linha_produto !== vLinha) return false;
+      if (vCategoria && item.categoria !== vCategoria) return false;
+      if (vAno && extrairAno(item.lancamento) !== vAno) return false;
+      return true;
+    });
+
+    renderCards(`grid-${status}`, filtrados, "Nenhum item encontrado com esses filtros.");
+  };
+
+  ["franquia", "linha", "categoria", "ano"].forEach((campoId) => {
+    document.getElementById(`f-${campoId}-${status}`).addEventListener("change", aplicar);
+  });
+  document.getElementById(`f-limpar-${status}`).addEventListener("click", () => {
+    ["franquia", "linha", "categoria", "ano"].forEach((campoId) => {
+      document.getElementById(`f-${campoId}-${status}`).value = "";
+    });
+    aplicar();
+  });
+
+  aplicar();
 }
 
 function chartColors() {
@@ -163,9 +248,9 @@ async function carregarDados() {
 
     document.getElementById("atualizadoEm").textContent = dados.atualizado_em;
     renderKpis(dados.resumo);
-    renderGrid("grid-tenho", dados.itens, "tenho");
-    renderGrid("grid-encomendado", dados.itens, "encomendado");
-    renderGrid("grid-quero", dados.itens, "quero");
+    initFiltros("tenho", dados.itens);
+    initFiltros("encomendado", dados.itens);
+    initFiltros("quero", dados.itens);
 
     // Gráficos ficam num try separado: se o Chart.js não carregar (bloqueio de CDN,
     // adblocker, etc.), a coleção continua visível mesmo sem os gráficos.

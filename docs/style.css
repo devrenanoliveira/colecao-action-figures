@@ -607,6 +607,60 @@ body.dark #darkModeBtn      { color: #D97706; }
 body.dark #logoLight        { display: none !important; }
 body.dark #logoDark         { display: block !important; }
 
+/* ── FILTROS DA GALERIA (Franquia/Linha/Categoria/Ano) ────────── */
+.figure-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  background: var(--surface-card);
+  border: 1px solid #FFD9A8;
+  border-radius: 8px;
+}
+.filtro-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 140px;
+}
+.filtro-label {
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.filtro-select {
+  padding: 6px 8px;
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  background: var(--surface-card);
+  color: var(--ink-primary);
+  font-size: .78rem;
+  font-family: inherit;
+}
+.filtro-select:focus { outline: 2px solid var(--brand-blue-light); outline-offset: 1px; }
+.filtro-limpar {
+  padding: 6px 14px;
+  border: 1px solid var(--brand-gold);
+  border-radius: 6px;
+  background: none;
+  color: var(--brand-gold);
+  font-size: .76rem;
+  font-weight: 600;
+  cursor: pointer;
+  height: 31px;
+}
+.filtro-limpar:hover { background: var(--brand-gold); color: #fff; }
+body.dark .figure-filters { border-color: #4a2f10; }
+body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+@media (max-width: 600px) {
+  .figure-filters { gap: 8px; padding: 10px; }
+  .filtro-grupo { min-width: 120px; flex: 1 1 120px; }
+}
+
 /* ── FIGURE GRID / FIGURE CARD (galeria de action figures) ──── */
 .figure-grid {
   display: grid;
