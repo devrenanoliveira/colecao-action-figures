@@ -287,23 +287,43 @@ function atualizarBarraSelecao() {
 // Busca uma imagem por URL e converte pra data URL (base64) pro jsPDF conseguir
 // embutir no PDF. Se a imagem falhar (CORS, link quebrado, offline, demorar
 // demais), resolve com null em vez de travar a geração do PDF inteiro.
-function imagemParaDataUrl(url, timeoutMs = 6000) {
-  if (!url) return Promise.resolve(null);
-  const busca = fetch(url, { mode: "cors" })
+function blobParaDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const leitor = new FileReader();
+    leitor.onload = () => resolve(leitor.result);
+    leitor.onerror = reject;
+    leitor.readAsDataURL(blob);
+  });
+}
+
+function comTimeout(promessa, timeoutMs) {
+  const timeout = new Promise((resolve) => setTimeout(() => resolve(null), timeoutMs));
+  return Promise.race([promessa, timeout]);
+}
+
+// Busca uma imagem por URL e converte pra data URL (base64) pro jsPDF conseguir
+// embutir no PDF. Tenta primeiro direto na fonte; se o servidor de origem não liberar
+// CORS (comum em CDNs de hotlink, como o do MyFigureCollection), tenta de novo através
+// de um proxy de imagens público (wsrv.nl) que reencaminha com os cabeçalhos de CORS
+// certos. Se nada funcionar, resolve com null em vez de travar o PDF inteiro.
+async function imagemParaDataUrl(url, timeoutMs = 7000) {
+  if (!url) return null;
+
+  const tentarDireto = fetch(url, { mode: "cors" })
     .then((r) => (r.ok ? r.blob() : Promise.reject(new Error("HTTP " + r.status))))
-    .then(
-      (blob) =>
-        new Promise((resolve, reject) => {
-          const leitor = new FileReader();
-          leitor.onload = () => resolve(leitor.result);
-          leitor.onerror = reject;
-          leitor.readAsDataURL(blob);
-        })
-    )
+    .then(blobParaDataUrl)
     .catch(() => null);
 
-  const timeout = new Promise((resolve) => setTimeout(() => resolve(null), timeoutMs));
-  return Promise.race([busca, timeout]);
+  const direto = await comTimeout(tentarDireto, timeoutMs);
+  if (direto) return direto;
+
+  const urlProxy = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=jpg`;
+  const tentarProxy = fetch(urlProxy, { mode: "cors" })
+    .then((r) => (r.ok ? r.blob() : Promise.reject(new Error("HTTP " + r.status))))
+    .then(blobParaDataUrl)
+    .catch(() => null);
+
+  return comTimeout(tentarProxy, timeoutMs);
 }
 
 async function gerarPdfSelecionados() {
@@ -378,7 +398,11 @@ async function gerarPdfSelecionados() {
 
       if (dataUrl) {
         try {
-          doc.addImage(dataUrl, "JPEG", margem, y, larguraImg, alturaImg, undefined, "FAST");
+          // Detecta o formato real (JPEG/PNG/WEBP) a partir do prefixo "data:image/...";
+          // passar o formato errado pro jsPDF pode fazer a imagem não aparecer.
+          const mime = /^data:image\/(\w+);/.exec(dataUrl)?.[1]?.toUpperCase() || "JPEG";
+          const formato = mime === "JPG" ? "JPEG" : mime;
+          doc.addImage(dataUrl, formato, margem, y, larguraImg, alturaImg, undefined, "FAST");
         } catch (e) {
           doc.setDrawColor(220);
           doc.rect(margem, y, larguraImg, alturaImg);
