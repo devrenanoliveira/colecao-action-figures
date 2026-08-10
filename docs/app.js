@@ -42,7 +42,7 @@ function figureCardHTML(item) {
 
   const obs = item.observacao ? `<div class="figure-obs">${escapeHtml(item.observacao)}</div>` : "";
 
-  const meta = [item.franquia, item.categoria, item.lancamento].filter(Boolean).join(" · ");
+  const meta = [item.franquia, item.linha_produto, item.categoria, item.lancamento].filter(Boolean).join(" · ");
 
   return `
     <div class="figure-card">

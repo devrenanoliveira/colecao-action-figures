@@ -1,5 +1,5 @@
 {
-  "atualizado_em": "10/08/2026 15:46",
+  "atualizado_em": "10/08/2026 15:58",
   "resumo": {
     "total": 3,
     "tenho": 1,
@@ -22,18 +22,20 @@
   "itens": [
     {
       "id": 1,
-      "nome": "Son Goku - Figuarts ZERO",
+      "nome": "Goku Black",
+      "linha_produto": "Match Makers",
       "categoria": "Estatua",
       "franquia": "Dragon Ball Z",
       "status": "tenho",
-      "imagem_url": "https://example.com/imagens/goku.jpg",
-      "link_mfc": "https://myfigurecollection.net/item/000000",
-      "lancamento": "2019-03",
-      "observacao": "Exemplo - edite ou apague esta linha"
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3108725",
+      "lancamento": "2026-04",
+      "observacao": "Novo e com a caixa original"
     },
     {
       "id": 2,
       "nome": "Vegeta - S.H.Figuarts",
+      "linha_produto": null,
       "categoria": "Figure Articulada",
       "franquia": "Dragon Ball Z",
       "status": "encomendado",
@@ -45,6 +47,7 @@
     {
       "id": 3,
       "nome": "Nezuko Kamado - Pop Up Parade",
+      "linha_produto": null,
       "categoria": "Estatua",
       "franquia": "Demon Slayer",
       "status": "quero",
