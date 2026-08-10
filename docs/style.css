@@ -14,12 +14,13 @@
     table-card, tab-nav, etc.) nem o modo escuro — só a paleta de marca.
 */
 :root {
-  --brand-navy:       #0F2461;
-  --brand-navy-mid:   #1B3C8C;
-  --brand-blue:       #2563EB;
-  --brand-blue-light: #3B82F6;
-  --brand-gold:       #D97706;
-  --brand-gold-light: #F59E0B;
+  /* Tema "Clássico Goku" — laranja do gi + azul do treino (opção 1 escolhida) */
+  --brand-navy:       #1E5AA8;
+  --brand-navy-mid:   #2A6FC4;
+  --brand-blue:       #1B74E4;
+  --brand-blue-light: #4B94F0;
+  --brand-gold:       #FF6B00;
+  --brand-gold-light: #FF8C3D;
 
   --series-1: #2a78d6;
   --series-2: #008300;
@@ -34,9 +35,10 @@
   --delta-pos:      #006300;
   --delta-neg:      #B91C1C;
 
-  --surface:       #F1F5F9;
+  /* Fundo levemente aquecido (creme) pra combinar com o laranja — pedido explícito de tema, não é o padrão neutro da skill */
+  --surface:       #FFF8EE;
   --surface-card:  #FFFFFF;
-  --surface-chart: #fcfcfb;
+  --surface-chart: #FFFCF7;
 
   --ink-primary:   #0b0b0b;
   --ink-secondary: #52514e;
@@ -133,7 +135,7 @@ body {
 }
 .kpi-card.navy  { background: var(--brand-navy); }
 .kpi-card.blue  { background: var(--brand-blue); }
-.kpi-card.gold  { background: #FFFBEB; border-color: #FDE68A; }
+.kpi-card.gold  { background: #FFF1E0; border-color: #FFD9A8; }
 .kpi-card.red   { background: #FEF2F2; border-color: #FECACA; }
 
 .kpi-label {
@@ -615,24 +617,28 @@ body.dark #logoDark         { display: block !important; }
 .figure-card {
   background: var(--surface-card);
   border-radius: 8px;
-  border: 1px solid #E2E8F0;
+  border: 2px solid #FFD9A8;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform .15s, box-shadow .15s;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
 }
 .figure-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  border-color: var(--brand-gold);
+  box-shadow: 0 6px 18px rgba(255,107,0,.18);
 }
 .figure-thumb-wrap {
   aspect-ratio: 3 / 4;
-  background: var(--surface);
+  background: linear-gradient(135deg, #FFEBD1, #FFD9A8);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
+body.dark .figure-card       { border-color: #4a2f10; }
+body.dark .figure-card:hover { border-color: var(--brand-gold); }
+body.dark .figure-thumb-wrap { background: linear-gradient(135deg, #3a2410, #1a1208); }
 .figure-thumb {
   width: 100%;
   height: 100%;
