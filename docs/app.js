@@ -103,8 +103,12 @@ function renderCards(elId, itensFiltrados, mensagemVazio) {
 // Extrai o ano (4 dígitos) de um texto livre de lançamento, ex: "2026-04" → "2026".
 function extrairAno(lancamento) {
   if (!lancamento) return null;
-  const m = String(lancamento).match(/\d{4}/);
-  return m ? m[0] : null;
+  const texto = String(lancamento);
+  const anoCompleto = texto.match(/\d{4}/);
+  if (anoCompleto) return anoCompleto[0];
+  // Formatos como "abr/26" ou "26" (só 2 dígitos) — assume 20xx.
+  const anoCurto = texto.match(/\b(\d{2})\b/);
+  return anoCurto ? `20${anoCurto[1]}` : null;
 }
 
 function valoresUnicos(itensDoStatus, extractor) {
