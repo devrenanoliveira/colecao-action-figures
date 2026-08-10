@@ -13,7 +13,9 @@ data/colecao.csv é alterado (ver .github/workflows/atualizar.yml).
 
 import csv
 import json
+import re
 import sys
+import unicodedata
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -43,6 +45,56 @@ STATUS_LABEL = {
 COLUNAS_OBRIGATORIAS = ["nome", "status"]
 
 VALORES_SIM = {"sim", "s", "yes", "y", "true", "1"}
+
+# Ordem importa: tenta UTF-8 primeiro (padrão correto); cp1252 é o mais comum quando o
+# Excel/Windows salva o CSV em "ANSI"; latin-1 nunca falha, fica como último recurso.
+ENCODINGS_TENTATIVAS = ["utf-8-sig", "cp1252", "latin-1"]
+
+# Nomes alternativos aceitos por campo — o usuário pode digitar o cabeçalho de formas
+# diferentes (com/sem acento, com espaço ou underscore) e o script reconhece assim mesmo.
+# As chaves de ALIASES já estão normalizadas (sem acento, minúsculo, underscore).
+ALIASES_COLUNA = {
+    "nome": ["nome"],
+    "linha": ["linha", "linha_produto"],
+    "categoria": ["categoria"],
+    "franquia": ["franquia"],
+    "status": ["status"],
+    "imagem_url": ["imagem_url", "imagem", "url_imagem", "foto"],
+    "link_mfc": ["link_mfc", "link", "mfc", "link_myfigurecollection"],
+    "lancamento": ["lancamento", "data_lancamento", "ano"],
+    "observacao": ["observacao", "obs", "nota", "notas"],
+    "interesse_venda": [
+        "interesse_venda", "venda", "a_venda", "interesse_na_venda",
+        "a_venda_", "vender", "interessado_em_vender",
+    ],
+}
+
+
+def normalizar_chave(chave):
+    """Remove acento, espaços e caixa de um nome de coluna pra comparar sem frescura.
+    Ex: 'Interesse na Venda' → 'interesse_na_venda'."""
+    if chave is None:
+        return ""
+    sem_acento = unicodedata.normalize("NFKD", chave).encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"[^a-z0-9]+", "_", sem_acento.strip().lower()).strip("_")
+
+
+def mapear_colunas(fieldnames):
+    """Associa cada nome de campo interno (ex: 'interesse_venda') à coluna real do CSV
+    que o usuário usou (ex: 'Interesse na Venda'), tentando os aliases conhecidos."""
+    normalizados = {normalizar_chave(fn): fn for fn in (fieldnames or [])}
+    mapa = {}
+    for campo, aliases in ALIASES_COLUNA.items():
+        for alias in aliases:
+            if alias in normalizados:
+                mapa[campo] = normalizados[alias]
+                break
+    return mapa
+
+
+def pegar(linha, mapa, campo):
+    coluna_real = mapa.get(campo)
+    return linha.get(coluna_real) if coluna_real else None
 
 
 def limpar_texto(valor):
@@ -86,27 +138,47 @@ def detectar_delimitador(amostra):
         return ";" if primeira_linha.count(";") >= primeira_linha.count(",") else ","
 
 
+def ler_conteudo_com_fallback():
+    """Lê os bytes do CSV e tenta decodificar em UTF-8 primeiro; se o arquivo tiver sido
+    salvo pelo Excel no Windows como 'CSV (ANSI)' ou similar, cai pra cp1252/latin-1 em vez
+    de travar o script inteiro com um UnicodeDecodeError."""
+    bruto = CSV_PATH.read_bytes()
+    for encoding in ENCODINGS_TENTATIVAS:
+        try:
+            return bruto.decode(encoding), encoding
+        except UnicodeDecodeError:
+            continue
+    # latin-1 nunca deveria falhar (mapeia todo byte 0-255), mas por segurança:
+    print("ERRO: não foi possível decodificar o CSV em nenhuma codificação conhecida.")
+    sys.exit(1)
+
+
 def ler_csv():
     if not CSV_PATH.exists():
         print(f"ERRO: arquivo não encontrado: {CSV_PATH}")
         sys.exit(1)
 
-    with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
-        conteudo = f.read()
+    conteudo, encoding_usado = ler_conteudo_com_fallback()
+    if encoding_usado != "utf-8-sig":
+        print(f"Aviso: o CSV não estava em UTF-8 — lido como '{encoding_usado}'. "
+              f"Se algum acento aparecer errado no dashboard, salve o arquivo como "
+              f"'CSV UTF-8 (Comma delimited)' no Excel/Planilhas Google da próxima vez.")
 
     delimitador = detectar_delimitador(conteudo[:2048])
     print(f"Delimitador detectado: '{delimitador}'")
 
     itens = []
     leitor = csv.DictReader(conteudo.splitlines(), delimiter=delimitador)
+    mapa = mapear_colunas(leitor.fieldnames)
 
-    colunas_faltando = [c for c in COLUNAS_OBRIGATORIAS if c not in (leitor.fieldnames or [])]
+    colunas_faltando = [c for c in COLUNAS_OBRIGATORIAS if c not in mapa]
     if colunas_faltando:
-        print(f"ERRO: coluna(s) obrigatória(s) faltando no CSV: {colunas_faltando}")
+        print(f"ERRO: coluna(s) obrigatória(s) faltando no CSV: {colunas_faltando} "
+              f"(cabeçalho encontrado: {leitor.fieldnames})")
         sys.exit(1)
 
     for i, linha in enumerate(leitor, start=2):  # start=2 pois linha 1 é o cabeçalho
-        nome = limpar_texto(linha.get("nome"))
+        nome = limpar_texto(pegar(linha, mapa, "nome"))
         if not nome:
             # Linha totalmente em branco (comum no final do arquivo ao salvar pelo Excel) — ignora silenciosamente.
             if any(limpar_texto(v) for v in linha.values()):
@@ -114,26 +186,23 @@ def ler_csv():
             continue
 
         try:
-            status = normalizar_status(linha.get("status"), i)
+            status = normalizar_status(pegar(linha, mapa, "status"), i)
         except ValueError as e:
             print(f"ERRO: {e}")
             sys.exit(1)
 
-        # Aceita alguns nomes alternativos pra coluna, caso o usuário digite diferente.
-        valor_venda = linha.get("interesse_venda", linha.get("venda", linha.get("a_venda")))
-
         item = {
             "id": i - 1,
             "nome": nome,
-            "linha_produto": limpar_texto(linha.get("linha")),
-            "categoria": limpar_texto(linha.get("categoria")) or "Sem categoria",
-            "franquia": limpar_texto(linha.get("franquia")) or "Sem franquia",
+            "linha_produto": limpar_texto(pegar(linha, mapa, "linha")),
+            "categoria": limpar_texto(pegar(linha, mapa, "categoria")) or "Sem categoria",
+            "franquia": limpar_texto(pegar(linha, mapa, "franquia")) or "Sem franquia",
             "status": status,
-            "imagem_url": limpar_texto(linha.get("imagem_url")),
-            "link_mfc": limpar_texto(linha.get("link_mfc")),
-            "lancamento": limpar_texto(linha.get("lancamento")),
-            "observacao": limpar_texto(linha.get("observacao")),
-            "interesse_venda": normalizar_bool(valor_venda),
+            "imagem_url": limpar_texto(pegar(linha, mapa, "imagem_url")),
+            "link_mfc": limpar_texto(pegar(linha, mapa, "link_mfc")),
+            "lancamento": limpar_texto(pegar(linha, mapa, "lancamento")),
+            "observacao": limpar_texto(pegar(linha, mapa, "observacao")),
+            "interesse_venda": normalizar_bool(pegar(linha, mapa, "interesse_venda")),
         }
         itens.append(item)
 
