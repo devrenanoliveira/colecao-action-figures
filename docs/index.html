@@ -128,8 +128,11 @@
   <button type="button" id="btnLimparSelecao">Limpar seleção</button>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- Bibliotecas hospedadas dentro do próprio repositório (docs/vendor/) em vez de um
+     CDN externo — evita que adblocker, extensão de privacidade ou política de rede
+     bloqueiem o carregamento e deixem os gráficos/PDF fora do ar. -->
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
