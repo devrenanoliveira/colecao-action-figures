@@ -336,16 +336,44 @@ async function gerarPdfSelecionados() {
     doc.setTextColor(0);
     y += 10;
 
-    const alturaBloco = 42;
+    const larguraImg = 30;
+    const alturaImg = 38;
+    const xTexto = margem + larguraImg + 6;
+    const larguraTexto = larguraUtil - larguraImg - 6;
 
     for (const item of itens) {
+      const linhasInfo = [
+        ["Status", STATUS_LABEL[item.status] || item.status],
+        ["Franquia", item.franquia],
+        ["Linha", item.linha_produto],
+        ["Categoria", item.categoria],
+        ["Lançamento", item.lancamento],
+        ["À venda", item.interesse_venda ? "Sim" : "Não"],
+        ["Observação", item.observacao],
+        ["Link MFC", item.link_mfc],
+      ].filter(([, v]) => Boolean(v));
+
+      // Pré-calcula quantas linhas cada campo vai ocupar (com quebra de texto) ANTES de
+      // desenhar, pra saber a altura real do bloco — é isso que evita um item comprido
+      // (observação ou link grandes) invadir o espaço do próximo.
+      doc.setFontSize(9);
+      const linhasCalculadas = linhasInfo.map(([label, valor]) => {
+        const texto = doc.splitTextToSize(`${label}: ${valor}`, larguraTexto);
+        // avanco = quanto o cursor Y desce pra desenhar este campo: 5mm de espaçamento
+        // antes da primeira linha + 4mm pra cada linha extra que o texto quebrou.
+        const avanco = 5 + (texto.length - 1) * 4;
+        return { texto, avanco };
+      });
+      // 5mm da linha do nome + o avanço de cada campo + margem de segurança antes da
+      // linha divisória, pra ela nunca ficar colada (ou sobrepor) o último texto.
+      const alturaTextoTotal = 5 + linhasCalculadas.reduce((soma, l) => soma + l.avanco, 0) + 6;
+      const alturaBloco = Math.max(alturaImg + 8, alturaTextoTotal);
+
       if (y + alturaBloco > 282) {
         doc.addPage();
         y = 20;
       }
 
-      const larguraImg = 30;
-      const alturaImg = 38;
       const dataUrl = await imagemParaDataUrl(item.imagem_url);
 
       if (dataUrl) {
@@ -364,7 +392,6 @@ async function gerarPdfSelecionados() {
         doc.setTextColor(0);
       }
 
-      const xTexto = margem + larguraImg + 6;
       let yTexto = y + 5;
       doc.setFontSize(11);
       doc.setFont(undefined, "bold");
@@ -372,22 +399,10 @@ async function gerarPdfSelecionados() {
       doc.setFont(undefined, "normal");
       doc.setFontSize(9);
 
-      const linhasInfo = [
-        ["Status", STATUS_LABEL[item.status] || item.status],
-        ["Franquia", item.franquia],
-        ["Linha", item.linha_produto],
-        ["Categoria", item.categoria],
-        ["Lançamento", item.lancamento],
-        ["À venda", item.interesse_venda ? "Sim" : "Não"],
-        ["Observação", item.observacao],
-        ["Link MFC", item.link_mfc],
-      ].filter(([, v]) => Boolean(v));
-
-      linhasInfo.forEach(([label, valor]) => {
+      linhasCalculadas.forEach(({ texto, avanco }) => {
         yTexto += 5;
-        const linhaTexto = doc.splitTextToSize(`${label}: ${valor}`, larguraUtil - larguraImg - 6);
-        doc.text(linhaTexto, xTexto, yTexto);
-        yTexto += (linhaTexto.length - 1) * 4;
+        doc.text(texto, xTexto, yTexto);
+        yTexto += avanco - 5;
       });
 
       y += alturaBloco;
