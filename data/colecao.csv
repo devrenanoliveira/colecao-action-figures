@@ -1,4 +1,10 @@
-nome;linha;categoria;franquia;status;imagem_url;link_mfc;lancamento;observacao
-Goku Black;Match Makers;Estatua;Dragon Ball Z;tenho;https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg;https://myfigurecollection.net/item/3108725;2026-04;Novo e com a caixa original
-Vegeta - S.H.Figuarts;;Figure Articulada;Dragon Ball Z;encomendado;https://example.com/imagens/vegeta.jpg;https://myfigurecollection.net/item/000001;2026-11;Exemplo - edite ou apague esta linha
-Nezuko Kamado - Pop Up Parade;;Estatua;Demon Slayer;quero;https://example.com/imagens/nezuko.jpg;https://myfigurecollection.net/item/000002;;Exemplo - edite ou apague esta linha
+nome;linha;categoria;franquia;status;interesse na venda;imagem_url;link_mfc;lancamento;observacao
+Goku Black;Match Makers;Estátua;Dragon Ball Super;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg;https://myfigurecollection.net/item/3108725;abr/26;Novo e com a caixa original
+Goku Kid;FES!!;Estátua;Dragon Ball Clássico;tenho;Não;https://static.myfigurecollection.net/upload/items/1/581736-4a076.jpg;https://myfigurecollection.net/item/581736;nov/17;Usado e com a caixa original
+Gogeta Ssj - Diorama;Com:Figuration;Estátua;Dragon Ball Z;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/581738-dbd13.jpg;https://myfigurecollection.net/item/581738;dez/17;Usado e com a caixa original
+Goku e Vegeta - Diorama;Com:Figuration;Estátua;Dragon Ball Z;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/581739-42999.jpg;https://myfigurecollection.net/item/581739;dez/17;Usado e com a caixa original
+Goku Ssj;Jump 50th Anniversary;Estátua;Dragon Ball Z;tenho;Não;https://static.myfigurecollection.net/upload/items/1/619280-bd1c9.jpg;https://myfigurecollection.net/item/619280;mar/18;Usado e com a caixa original
+Goku Blue Kaioken;Blood of Saiyans;Estátua;Dragon Ball Super;tenho;Não;https://static.myfigurecollection.net/upload/items/1/638901-41de7.jpg;https://myfigurecollection.net/item/638901;mai/18;Novo e com a caixa original
+Gogeta Ssj Xeno;DXF Figure;Estátua;Dragon Ball Heroes;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/641132-961f0.jpg;https://myfigurecollection.net/item/641132;mai/18;Usado e com a caixa original
+Gogeta Ssj - Filme Janemba;Colosseum Scultures;Estátua;Dragon Ball Z;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/653856-0ec01.jpg;https://myfigurecollection.net/item/653856;ago/18;Usado e com a caixa original
+Gogeta Ssj4;FES!!;Estátua;Dragon Ball GT;tenho;Sim;https://static.myfigurecollection.net/upload/items/1/673607-c94d5.jpg;https://myfigurecollection.net/item/673607;jul/18;Usado e com a caixa original
