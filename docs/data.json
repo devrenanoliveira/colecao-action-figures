@@ -1,20 +1,20 @@
 {
-  "atualizado_em": "10/08/2026 20:24",
+  "atualizado_em": "10/08/2026 20:40",
   "resumo": {
-    "total": 9,
-    "tenho": 9,
+    "total": 21,
+    "tenho": 21,
     "encomendado": 0,
     "quero": 0,
     "a_venda": 6,
     "por_categoria": {
-      "Estátua": 9
+      "Estátua": 21
     },
     "por_franquia": {
-      "Dragon Ball Z": 4,
-      "Dragon Ball Super": 2,
+      "Dragon Ball Super": 8,
+      "Dragon Ball GT": 6,
+      "Dragon Ball Z": 5,
       "Dragon Ball Clássico": 1,
-      "Dragon Ball Heroes": 1,
-      "Dragon Ball GT": 1
+      "Dragon Ball Heroes": 1
     }
   },
   "status_labels": {
@@ -138,7 +138,163 @@
       "link_mfc": "https://myfigurecollection.net/item/673607",
       "lancamento": "jul/18",
       "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 10,
+      "nome": "Goku Ssj3",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/684072-91fa2.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/684072",
+      "lancamento": "jul/18",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 11,
+      "nome": "Goku Ssj4",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/684074-68cfc.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/684074",
+      "lancamento": "jul/18",
+      "observacao": "Usado e sem a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 12,
+      "nome": "Freeza",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753864-ed426.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/753864",
+      "lancamento": "fev/19",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 13,
+      "nome": "Goku",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753865-99c30.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/753865",
+      "lancamento": "fev/19",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 14,
+      "nome": "Vegeta Ssj4",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753965-dbc90.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/753965",
+      "lancamento": "fev/19",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 15,
+      "nome": "Goku Ssj4",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/801856-15be5.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/801856",
+      "lancamento": "fev/19",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 16,
+      "nome": "Goku UI",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/775036-8e05f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/775036",
+      "lancamento": "abr/19",
+      "observacao": "Novo e com a caixa original",
       "interesse_venda": true
+    },
+    {
+      "id": 17,
+      "nome": "Goku Ssj4",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/775041-7c10a.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/775041",
+      "lancamento": "mai/19",
+      "observacao": "Usado e sem a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 18,
+      "nome": "Vegeta Ssj4",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/777708-4fe3f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/777708",
+      "lancamento": "jun/19",
+      "observacao": "Usado e sem a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 19,
+      "nome": "Broly Ssj - Super",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/813045-e5e88.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/813045",
+      "lancamento": "set/19",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 20,
+      "nome": "Goku Ssj Blue",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/830090-09b5a.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/830090",
+      "lancamento": "ago/19",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 21,
+      "nome": "Vegeta Ssj Blue",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/830091-cae10.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/830091",
+      "lancamento": "ago/19",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
     }
   ]
 }
