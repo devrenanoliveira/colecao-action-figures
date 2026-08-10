@@ -62,44 +62,67 @@ def normalizar_status(valor, linha_num):
     return status
 
 
+def detectar_delimitador(amostra):
+    """Detecta se o CSV usa ',' ou ';' como separador.
+
+    O Excel em português (pt-BR) exporta CSV com ';' por padrão (porque ','
+    é o separador decimal). Detectar automaticamente evita que o script
+    quebre toda vez que o usuário reabrir/resalvar o arquivo no Excel.
+    """
+    try:
+        return csv.Sniffer().sniff(amostra, delimiters=",;").delimiter
+    except csv.Error:
+        # Fallback: conta qual aparece mais na primeira linha
+        primeira_linha = amostra.splitlines()[0] if amostra else ""
+        return ";" if primeira_linha.count(";") >= primeira_linha.count(",") else ","
+
+
 def ler_csv():
     if not CSV_PATH.exists():
         print(f"ERRO: arquivo não encontrado: {CSV_PATH}")
         sys.exit(1)
 
-    itens = []
-    with open(CSV_PATH, newline="", encoding="utf-8") as f:
-        leitor = csv.DictReader(f)
+    with open(CSV_PATH, newline="", encoding="utf-8-sig") as f:
+        conteudo = f.read()
 
-        colunas_faltando = [c for c in COLUNAS_OBRIGATORIAS if c not in (leitor.fieldnames or [])]
-        if colunas_faltando:
-            print(f"ERRO: coluna(s) obrigatória(s) faltando no CSV: {colunas_faltando}")
+    delimitador = detectar_delimitador(conteudo[:2048])
+    print(f"Delimitador detectado: '{delimitador}'")
+
+    itens = []
+    leitor = csv.DictReader(conteudo.splitlines(), delimiter=delimitador)
+
+    colunas_faltando = [c for c in COLUNAS_OBRIGATORIAS if c not in (leitor.fieldnames or [])]
+    if colunas_faltando:
+        print(f"ERRO: coluna(s) obrigatória(s) faltando no CSV: {colunas_faltando}")
+        sys.exit(1)
+
+    for i, linha in enumerate(leitor, start=2):  # start=2 pois linha 1 é o cabeçalho
+        nome = limpar_texto(linha.get("nome"))
+        if not nome:
+            # Linha totalmente em branco (comum no final do arquivo ao salvar pelo Excel) — ignora silenciosamente.
+            if any(limpar_texto(v) for v in linha.values()):
+                print(f"Aviso: linha {i} sem 'nome' — pulando.")
+            continue
+
+        try:
+            status = normalizar_status(linha.get("status"), i)
+        except ValueError as e:
+            print(f"ERRO: {e}")
             sys.exit(1)
 
-        for i, linha in enumerate(leitor, start=2):  # start=2 pois linha 1 é o cabeçalho
-            nome = limpar_texto(linha.get("nome"))
-            if not nome:
-                print(f"Aviso: linha {i} sem 'nome' — pulando.")
-                continue
-
-            try:
-                status = normalizar_status(linha.get("status"), i)
-            except ValueError as e:
-                print(f"ERRO: {e}")
-                sys.exit(1)
-
-            item = {
-                "id": i - 1,
-                "nome": nome,
-                "categoria": limpar_texto(linha.get("categoria")) or "Sem categoria",
-                "franquia": limpar_texto(linha.get("franquia")) or "Sem franquia",
-                "status": status,
-                "imagem_url": limpar_texto(linha.get("imagem_url")),
-                "link_mfc": limpar_texto(linha.get("link_mfc")),
-                "lancamento": limpar_texto(linha.get("lancamento")),
-                "observacao": limpar_texto(linha.get("observacao")),
-            }
-            itens.append(item)
+        item = {
+            "id": i - 1,
+            "nome": nome,
+            "linha_produto": limpar_texto(linha.get("linha")),
+            "categoria": limpar_texto(linha.get("categoria")) or "Sem categoria",
+            "franquia": limpar_texto(linha.get("franquia")) or "Sem franquia",
+            "status": status,
+            "imagem_url": limpar_texto(linha.get("imagem_url")),
+            "link_mfc": limpar_texto(linha.get("link_mfc")),
+            "lancamento": limpar_texto(linha.get("lancamento")),
+            "observacao": limpar_texto(linha.get("observacao")),
+        }
+        itens.append(item)
 
     print(f"Lidas {len(itens)} linhas válidas de {CSV_PATH.name}")
     return itens
