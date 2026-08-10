@@ -1,0 +1,36 @@
+name: Atualizar Dashboard da Coleção
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/colecao.csv"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rodar script de atualização
+        run: python scripts/atualizar_dashboard.py
+
+      - name: Commitar data.json se houver mudanças
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- docs/data.json; then
+            echo "Nenhuma mudança em docs/data.json — nada para commitar."
+          else
+            git add docs/data.json
+            git commit -m "Atualização automática do dashboard — $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi
