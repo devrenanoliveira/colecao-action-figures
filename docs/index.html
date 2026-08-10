@@ -16,9 +16,10 @@
     <div class="header-sep"></div>
     <div class="header-title">Action Figures — Dashboard da Coleção</div>
   </div>
-  <div class="header-right" style="display:flex; align-items:center; gap:14px;">
+  <div class="header-right" style="display:flex; align-items:center; gap:10px;">
     <div class="header-update">Atualizado em<br><strong id="atualizadoEm">—</strong></div>
-    <button id="darkModeBtn" title="Alternar modo escuro" style="background:none; border:1px solid rgba(255,255,255,.3); color:#fff; border-radius:6px; padding:6px 10px; cursor:pointer; font-size:.85rem;">🌙</button>
+    <button id="compactBtn" title="Alternar visualização compacta" class="header-icon-btn">▤ Compacta</button>
+    <button id="darkModeBtn" title="Alternar modo escuro" class="header-icon-btn">🌙</button>
   </div>
 </header>
 
@@ -38,7 +39,7 @@
     <p class="sec-subtitle">Itens que já tenho, encomendados e na lista de desejos. Clique nas abas acima para ver cada grupo em detalhe.</p>
 
     <div class="contact-banner">
-      <strong>Interessado em algum item?</strong> Os itens marcados como <strong>Tenho</strong> podem estar disponíveis para negociação — me chame para conversar sobre qualquer peça da coleção.
+      <strong>Interessado em algum item?</strong> Os itens com a plaquinha <span class="figure-venda-flag" style="position:static; display:inline-flex; vertical-align:middle;">À venda</span> estão com interesse ativo em negociação — me chame para conversar sobre qualquer peça da coleção.
     </div>
 
     <div class="kpi-grid">
@@ -61,6 +62,11 @@
         <div class="kpi-label">Quero</div>
         <div class="kpi-value" id="kpiQuero">—</div>
         <div class="kpi-sub">lista de desejos</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-label">🏷️ À venda</div>
+        <div class="kpi-value" id="kpiVenda">—</div>
+        <div class="kpi-sub">com interesse em negociar</div>
       </div>
     </div>
 
@@ -115,7 +121,15 @@
   </div>
 </div>
 
+<!-- Barra flutuante de seleção — só aparece quando há 1+ item selecionado -->
+<div id="selecaoBar" class="selecao-bar" hidden>
+  <span id="selecaoCount">0 selecionadas</span>
+  <button type="button" id="btnGerarPdf">Gerar PDF da seleção</button>
+  <button type="button" id="btnLimparSelecao">Limpar seleção</button>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

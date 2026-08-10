@@ -75,6 +75,18 @@ body {
 .header-right { text-align: right; }
 .header-update{ font-size: .72rem; opacity: .65; line-height: 1.6; }
 .header-update strong { opacity: .9; }
+.header-icon-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,.3);
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: .78rem;
+  white-space: nowrap;
+}
+.header-icon-btn:hover { background: rgba(255,255,255,.12); }
+.header-icon-btn.active { background: var(--brand-gold); border-color: var(--brand-gold); }
 
 /* ── TAB NAV ─────────────────────────────────────────── */
 .tab-nav {
@@ -669,6 +681,7 @@ body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: 
   margin-bottom: 18px;
 }
 .figure-card {
+  position: relative;
   background: var(--surface-card);
   border-radius: 8px;
   border: 2px solid #FFD9A8;
@@ -682,7 +695,12 @@ body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: 
   border-color: var(--brand-gold);
   box-shadow: 0 6px 18px rgba(255,107,0,.18);
 }
+.figure-card.selecionado {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 3px rgba(27,116,228,.25);
+}
 .figure-thumb-wrap {
+  position: relative;
   aspect-ratio: 3 / 4;
   background: linear-gradient(135deg, #FFEBD1, #FFD9A8);
   display: flex;
@@ -693,6 +711,96 @@ body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: 
 body.dark .figure-card       { border-color: #4a2f10; }
 body.dark .figure-card:hover { border-color: var(--brand-gold); }
 body.dark .figure-thumb-wrap { background: linear-gradient(135deg, #3a2410, #1a1208); }
+
+/* ── PLAQUINHA "À VENDA" ──────────────────────────────────────── */
+.figure-venda-flag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--brand-gold);
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+}
+.figure-venda-flag::before { content: "🏷️"; font-size: .7rem; }
+
+/* ── SELEÇÃO DE ITENS (checkbox sobre o card + barra flutuante) ── */
+.figure-select-overlay {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background: rgba(255,255,255,.9);
+  border-radius: 5px;
+  padding: 3px;
+  display: flex;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+.figure-select-overlay input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: var(--brand-blue);
+  margin: 0;
+}
+
+.selecao-bar {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--brand-navy);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 30px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  font-size: .82rem;
+}
+.selecao-bar[hidden] { display: none; }
+.selecao-bar button {
+  border: none;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: .78rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.selecao-bar #btnGerarPdf { background: var(--brand-gold); color: #fff; }
+.selecao-bar #btnGerarPdf:disabled { opacity: .6; cursor: wait; }
+.selecao-bar #btnLimparSelecao { background: rgba(255,255,255,.15); color: #fff; }
+.selecao-bar #btnLimparSelecao:hover { background: rgba(255,255,255,.25); }
+@media (max-width: 480px) {
+  .selecao-bar { flex-wrap: wrap; justify-content: center; width: calc(100% - 24px); bottom: 10px; }
+}
+
+/* ── VISUALIZAÇÃO COMPACTA (toggle global no header) ─────────────── */
+body.compact-view .figure-grid {
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 8px;
+}
+body.compact-view .figure-thumb-wrap { aspect-ratio: 1 / 1; }
+body.compact-view .figure-body { padding: 6px 8px 8px; gap: 2px; }
+body.compact-view .figure-nome { font-size: .7rem; line-height: 1.25; }
+body.compact-view .figure-meta-list { display: none; }
+body.compact-view .figure-link { font-size: .64rem; padding-top: 3px; }
+body.compact-view .figure-status-badge { font-size: .58rem; padding: 1px 6px; }
+body.compact-view .figure-venda-flag { font-size: .55rem; padding: 2px 6px; top: 5px; right: 5px; }
+body.compact-view .figure-venda-flag::before { font-size: .6rem; }
+body.compact-view .figure-select-overlay { top: 5px; left: 5px; padding: 2px; }
+body.compact-view .figure-select-overlay input[type="checkbox"] { width: 15px; height: 15px; }
 .figure-thumb {
   width: 100%;
   height: 100%;

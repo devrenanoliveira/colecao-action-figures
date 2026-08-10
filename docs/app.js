@@ -4,6 +4,9 @@
 
 const STATUS_LABEL = { tenho: "Tenho", encomendado: "Encomendado", quero: "Quero" };
 
+// IDs dos itens selecionados pra exportação em PDF — persiste entre trocas de aba/filtro.
+const selecionados = new Set();
+
 function initTabs() {
   const btns = document.querySelectorAll(".tab-btn");
   btns.forEach((btn) => {
@@ -55,9 +58,18 @@ function figureCardHTML(item) {
     .map(([label, valor]) => `<div class="figure-meta-row"><span class="figure-meta-label">${label}:</span> ${escapeHtml(valor)}</div>`)
     .join("");
 
+  const vendaFlag = item.interesse_venda ? `<div class="figure-venda-flag">À venda</div>` : "";
+  const marcado = selecionados.has(item.id) ? "checked" : "";
+
   return `
-    <div class="figure-card">
-      <div class="figure-thumb-wrap">${imagem}</div>
+    <div class="figure-card ${selecionados.has(item.id) ? "selecionado" : ""}" data-id="${item.id}">
+      <div class="figure-thumb-wrap">
+        <label class="figure-select-overlay" title="Selecionar para o PDF">
+          <input type="checkbox" class="figure-select-checkbox" data-id="${item.id}" ${marcado}>
+        </label>
+        ${vendaFlag}
+        ${imagem}
+      </div>
       <div class="figure-body">
         <span class="figure-status-badge ${item.status}">${STATUS_LABEL[item.status] || item.status}</span>
         <div class="figure-nome">${escapeHtml(item.nome)}</div>
@@ -232,11 +244,189 @@ function renderCharts(dados) {
   window.__charts.push(chartFranquia);
 }
 
+// ── SELEÇÃO DE ITENS + PDF ──────────────────────────────────────────
+
+function initSelecao() {
+  // Delegação de evento: um listener só, funciona mesmo depois dos grids
+  // serem re-renderizados pelos filtros (os checkboxes são recriados toda hora).
+  document.addEventListener("change", (ev) => {
+    if (!ev.target.classList.contains("figure-select-checkbox")) return;
+    const id = Number(ev.target.dataset.id);
+    if (ev.target.checked) {
+      selecionados.add(id);
+      ev.target.closest(".figure-card")?.classList.add("selecionado");
+    } else {
+      selecionados.delete(id);
+      ev.target.closest(".figure-card")?.classList.remove("selecionado");
+    }
+    atualizarBarraSelecao();
+  });
+
+  document.getElementById("btnLimparSelecao").addEventListener("click", () => {
+    selecionados.clear();
+    document.querySelectorAll(".figure-select-checkbox").forEach((cb) => (cb.checked = false));
+    document.querySelectorAll(".figure-card.selecionado").forEach((c) => c.classList.remove("selecionado"));
+    atualizarBarraSelecao();
+  });
+
+  document.getElementById("btnGerarPdf").addEventListener("click", gerarPdfSelecionados);
+}
+
+function atualizarBarraSelecao() {
+  const bar = document.getElementById("selecaoBar");
+  const count = selecionados.size;
+  document.getElementById("selecaoCount").textContent =
+    count === 1 ? "1 selecionada" : `${count} selecionadas`;
+  bar.hidden = count === 0;
+}
+
+// Busca uma imagem por URL e converte pra data URL (base64) pro jsPDF conseguir
+// embutir no PDF. Se a imagem falhar (CORS, link quebrado, offline, demorar
+// demais), resolve com null em vez de travar a geração do PDF inteiro.
+function imagemParaDataUrl(url, timeoutMs = 6000) {
+  if (!url) return Promise.resolve(null);
+  const busca = fetch(url, { mode: "cors" })
+    .then((r) => (r.ok ? r.blob() : Promise.reject(new Error("HTTP " + r.status))))
+    .then(
+      (blob) =>
+        new Promise((resolve, reject) => {
+          const leitor = new FileReader();
+          leitor.onload = () => resolve(leitor.result);
+          leitor.onerror = reject;
+          leitor.readAsDataURL(blob);
+        })
+    )
+    .catch(() => null);
+
+  const timeout = new Promise((resolve) => setTimeout(() => resolve(null), timeoutMs));
+  return Promise.race([busca, timeout]);
+}
+
+async function gerarPdfSelecionados() {
+  const btn = document.getElementById("btnGerarPdf");
+  const itens = (window.__dados?.itens || []).filter((i) => selecionados.has(i.id));
+  if (itens.length === 0) return;
+
+  if (!window.jspdf) {
+    alert("Não foi possível carregar a biblioteca de PDF (jsPDF). Verifique sua conexão e tente de novo.");
+    return;
+  }
+
+  const textoOriginal = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Gerando PDF...";
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: "mm", format: "a4" });
+    const margem = 15;
+    const larguraUtil = 210 - margem * 2;
+    let y = 20;
+
+    doc.setFontSize(16);
+    doc.text("Minha Coleção de Action Figures — Seleção", margem, y);
+    y += 6;
+    doc.setFontSize(9);
+    doc.setTextColor(120);
+    doc.text(`${itens.length} item(ns) selecionado(s) — gerado em ${new Date().toLocaleDateString("pt-BR")}`, margem, y);
+    doc.setTextColor(0);
+    y += 10;
+
+    const alturaBloco = 42;
+
+    for (const item of itens) {
+      if (y + alturaBloco > 282) {
+        doc.addPage();
+        y = 20;
+      }
+
+      const larguraImg = 30;
+      const alturaImg = 38;
+      const dataUrl = await imagemParaDataUrl(item.imagem_url);
+
+      if (dataUrl) {
+        try {
+          doc.addImage(dataUrl, "JPEG", margem, y, larguraImg, alturaImg, undefined, "FAST");
+        } catch (e) {
+          doc.setDrawColor(220);
+          doc.rect(margem, y, larguraImg, alturaImg);
+        }
+      } else {
+        doc.setDrawColor(220);
+        doc.rect(margem, y, larguraImg, alturaImg);
+        doc.setFontSize(7);
+        doc.setTextColor(150);
+        doc.text("Sem imagem", margem + 4, y + alturaImg / 2);
+        doc.setTextColor(0);
+      }
+
+      const xTexto = margem + larguraImg + 6;
+      let yTexto = y + 5;
+      doc.setFontSize(11);
+      doc.setFont(undefined, "bold");
+      doc.text(item.nome, xTexto, yTexto);
+      doc.setFont(undefined, "normal");
+      doc.setFontSize(9);
+
+      const linhasInfo = [
+        ["Status", STATUS_LABEL[item.status] || item.status],
+        ["Franquia", item.franquia],
+        ["Linha", item.linha_produto],
+        ["Categoria", item.categoria],
+        ["Lançamento", item.lancamento],
+        ["À venda", item.interesse_venda ? "Sim" : "Não"],
+        ["Observação", item.observacao],
+        ["Link MFC", item.link_mfc],
+      ].filter(([, v]) => Boolean(v));
+
+      linhasInfo.forEach(([label, valor]) => {
+        yTexto += 5;
+        const linhaTexto = doc.splitTextToSize(`${label}: ${valor}`, larguraUtil - larguraImg - 6);
+        doc.text(linhaTexto, xTexto, yTexto);
+        yTexto += (linhaTexto.length - 1) * 4;
+      });
+
+      y += alturaBloco;
+      doc.setDrawColor(230);
+      doc.line(margem, y - 4, margem + larguraUtil, y - 4);
+    }
+
+    doc.save("colecao-selecionada.pdf");
+  } catch (err) {
+    console.error("Falha ao gerar PDF:", err);
+    alert("Não foi possível gerar o PDF. Tente novamente.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = textoOriginal;
+  }
+}
+
+// ── VISUALIZAÇÃO COMPACTA ────────────────────────────────────────────
+
+function initCompactToggle() {
+  const btn = document.getElementById("compactBtn");
+  try {
+    if (localStorage.getItem("colecaoFiguresCompactView") === "true") {
+      document.body.classList.add("compact-view");
+      btn.classList.add("active");
+    }
+  } catch (e) {}
+
+  btn.addEventListener("click", () => {
+    const ativo = document.body.classList.toggle("compact-view");
+    btn.classList.toggle("active", ativo);
+    try {
+      localStorage.setItem("colecaoFiguresCompactView", ativo);
+    } catch (e) {}
+  });
+}
+
 function renderKpis(resumo) {
   document.getElementById("kpiTotal").textContent = resumo.total;
   document.getElementById("kpiTenho").textContent = resumo.tenho;
   document.getElementById("kpiEncomendado").textContent = resumo.encomendado;
   document.getElementById("kpiQuero").textContent = resumo.quero;
+  document.getElementById("kpiVenda").textContent = resumo.a_venda ?? 0;
 }
 
 async function carregarDados() {
@@ -268,4 +458,6 @@ async function carregarDados() {
 
 initTabs();
 initDarkMode();
+initSelecao();
+initCompactToggle();
 carregarDados();
