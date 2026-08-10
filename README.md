@@ -15,13 +15,14 @@ Toda a coleção vive em **`data/colecao.csv`** — um arquivo de planilha simpl
 4. Role até o final da página e clique em **"Commit changes..."** para salvar direto na branch `main`.
 5. Pronto — o GitHub Actions detecta a mudança automaticamente, roda o script e atualiza o dashboard publicado em poucos minutos (sem precisar fazer mais nada).
 
-Se preferir editar em lote (mais rápido pra colar várias figures de uma vez), é mais fácil abrir esse CSV no Excel/Google Sheets, editar por lá, e depois colar o conteúdo de volta no editor do GitHub — só cuidado pra manter a primeira linha (cabeçalho) intacta.
+Se preferir editar em lote (mais rápido pra colar várias figures de uma vez), é mais fácil abrir esse CSV no Excel/Google Sheets, editar por lá, e depois colar o conteúdo de volta no editor do GitHub — só cuidado pra manter a primeira linha (cabeçalho) intacta. O script aceita tanto `,` quanto `;` como separador (detecta sozinho), então salvar pelo Excel em português — que usa `;` por padrão — funciona sem configurar nada.
 
 ### Colunas do CSV
 
 | Coluna | Obrigatória? | Descrição |
 |---|---|---|
 | `nome` | Sim | Nome da figure |
+| `linha` | Não | Linha/série do produto — ex: Match Makers, Figuarts ZERO, Pop Up Parade, S.H.Figuarts |
 | `categoria` | Não | Ex: Estátua, Figure Articulada, Nendoroid, Prize |
 | `franquia` | Não | Ex: Dragon Ball Z, Demon Slayer, One Piece |
 | `status` | Sim | `tenho`, `encomendado` ou `quero` |
