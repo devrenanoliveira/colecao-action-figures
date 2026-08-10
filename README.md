@@ -30,8 +30,17 @@ Se preferir editar em lote (mais rápido pra colar várias figures de uma vez), 
 | `link_mfc` | Não | Link da página do item no MyFigureCollection |
 | `lancamento` | Não | Data/ano de lançamento, texto livre (ex: `2026-11`) |
 | `observacao` | Não | Qualquer nota curta (ex: "caixa lacrada", "edição limitada") |
+| `interesse_venda` | Não | `sim` ou `não` — itens marcados como `sim` ganham a plaquinha "À venda" no dashboard |
 
 Linhas com `status` fora de `tenho/encomendado/quero` fazem o script parar com um erro explicando qual linha está errada — isso evita publicar um dashboard com dado quebrado.
+
+## Funcionalidades do dashboard
+
+- **Filtros por aba** (Franquia, Linha, Categoria, Ano) — gerados automaticamente a partir do que existe no CSV.
+- **Plaquinha "À venda"** — qualquer item com `interesse_venda = sim` aparece com um selo laranja no card, além de contar num KPI dedicado na aba Resumo.
+- **Seleção + exportação em PDF** — cada card tem uma caixinha de seleção no canto superior esquerdo. Ao marcar 1 ou mais itens (mesmo em abas diferentes), aparece uma barra flutuante com o botão "Gerar PDF da seleção", que baixa um PDF só com os itens escolhidos (nome, franquia, linha, categoria, status, lançamento, observação, link do MFC e a imagem, quando possível).
+  - **Limitação de imagem no PDF**: se a imagem estiver hospedada num servidor que bloqueia carregamento entre sites (CORS) — o que pode acontecer com algumas imagens do MyFigureCollection —, o PDF é gerado normalmente, só que sem aquela imagem específica (fica um espaço em branco no lugar). Isso não trava a geração do PDF nem afeta os outros itens.
+- **Visualização compacta** — botão no cabeçalho que alterna entre o card completo (com todos os campos) e um card reduzido (só nome, status e imagem menor), pra visualizar a coleção inteira de forma mais rápida. A preferência fica salva no navegador.
 
 ## Por que não busca os dados automaticamente do MyFigureCollection?
 
