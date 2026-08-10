@@ -40,9 +40,20 @@ function figureCardHTML(item) {
     ? `<a class="figure-link" href="${escapeHtml(item.link_mfc)}" target="_blank" rel="noopener">Ver no MyFigureCollection ↗</a>`
     : "";
 
-  const obs = item.observacao ? `<div class="figure-obs">${escapeHtml(item.observacao)}</div>` : "";
+  const obs = item.observacao
+    ? `<div class="figure-meta-row"><span class="figure-meta-label">Obs.:</span> ${escapeHtml(item.observacao)}</div>`
+    : "";
 
-  const meta = [item.franquia, item.linha_produto, item.categoria, item.lancamento].filter(Boolean).join(" · ");
+  // Lista de campos com rótulo — só entra na lista quem tiver valor preenchido.
+  const camposMeta = [
+    ["Franquia", item.franquia],
+    ["Linha", item.linha_produto],
+    ["Categoria", item.categoria],
+    ["Lançamento", item.lancamento],
+  ]
+    .filter(([, valor]) => Boolean(valor))
+    .map(([label, valor]) => `<div class="figure-meta-row"><span class="figure-meta-label">${label}:</span> ${escapeHtml(valor)}</div>`)
+    .join("");
 
   return `
     <div class="figure-card">
@@ -50,8 +61,10 @@ function figureCardHTML(item) {
       <div class="figure-body">
         <span class="figure-status-badge ${item.status}">${STATUS_LABEL[item.status] || item.status}</span>
         <div class="figure-nome">${escapeHtml(item.nome)}</div>
-        <div class="figure-meta">${escapeHtml(meta)}</div>
-        ${obs}
+        <div class="figure-meta-list">
+          ${camposMeta}
+          ${obs}
+        </div>
         ${link}
       </div>
     </div>`;
