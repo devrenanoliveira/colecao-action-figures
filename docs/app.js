@@ -347,11 +347,27 @@ async function gerarPdfSelecionados() {
     const larguraUtil = 210 - margem * 2;
     let y = 20;
 
+    // Paleta do tema "Clássico Goku" do dashboard, em RGB (0-255) — é o que o jsPDF espera.
+    const COR_AZUL = [30, 90, 168]; // var(--brand-navy)
+    const COR_LARANJA = [255, 107, 0]; // var(--brand-gold)
+    const COR_VERDE = [12, 163, 12]; // status "tenho"
+    const COR_AMBAR = [217, 119, 6]; // status "encomendado"
+    const COR_CINZA = [110, 110, 110];
+    const COR_LINHA = [255, 217, 168]; // divisórias em laranja claro
+
+    doc.setTextColor(...COR_AZUL);
     doc.setFontSize(16);
+    doc.setFont(undefined, "bold");
     doc.text("Minha Coleção de Action Figures — Seleção", margem, y);
-    y += 6;
+    doc.setFont(undefined, "normal");
+    y += 3;
+    doc.setDrawColor(...COR_LARANJA);
+    doc.setLineWidth(0.8);
+    doc.line(margem, y, margem + larguraUtil, y);
+    doc.setLineWidth(0.2);
+    y += 5;
     doc.setFontSize(9);
-    doc.setTextColor(120);
+    doc.setTextColor(...COR_CINZA);
     doc.text(`${itens.length} item(ns) selecionado(s) — gerado em ${new Date().toLocaleDateString("pt-BR")}`, margem, y);
     doc.setTextColor(0);
     y += 10;
@@ -382,7 +398,7 @@ async function gerarPdfSelecionados() {
         // avanco = quanto o cursor Y desce pra desenhar este campo: 5mm de espaçamento
         // antes da primeira linha + 4mm pra cada linha extra que o texto quebrou.
         const avanco = 5 + (texto.length - 1) * 4;
-        return { texto, avanco };
+        return { label, valor, texto, avanco };
       });
       // 5mm da linha do nome + o avanço de cada campo + margem de segurança antes da
       // linha divisória, pra ela nunca ficar colada (ou sobrepor) o último texto.
@@ -403,15 +419,17 @@ async function gerarPdfSelecionados() {
           const mime = /^data:image\/(\w+);/.exec(dataUrl)?.[1]?.toUpperCase() || "JPEG";
           const formato = mime === "JPG" ? "JPEG" : mime;
           doc.addImage(dataUrl, formato, margem, y, larguraImg, alturaImg, undefined, "FAST");
+          doc.setDrawColor(...COR_LINHA);
+          doc.rect(margem, y, larguraImg, alturaImg);
         } catch (e) {
-          doc.setDrawColor(220);
+          doc.setDrawColor(...COR_LINHA);
           doc.rect(margem, y, larguraImg, alturaImg);
         }
       } else {
-        doc.setDrawColor(220);
+        doc.setDrawColor(...COR_LINHA);
         doc.rect(margem, y, larguraImg, alturaImg);
         doc.setFontSize(7);
-        doc.setTextColor(150);
+        doc.setTextColor(...COR_CINZA);
         doc.text("Sem imagem", margem + 4, y + alturaImg / 2);
         doc.setTextColor(0);
       }
@@ -419,19 +437,35 @@ async function gerarPdfSelecionados() {
       let yTexto = y + 5;
       doc.setFontSize(11);
       doc.setFont(undefined, "bold");
+      doc.setTextColor(...COR_AZUL);
       doc.text(item.nome, xTexto, yTexto);
       doc.setFont(undefined, "normal");
       doc.setFontSize(9);
+      doc.setTextColor(0);
 
-      linhasCalculadas.forEach(({ texto, avanco }) => {
+      linhasCalculadas.forEach(({ label, valor, texto, avanco }) => {
         yTexto += 5;
+        // Destaca campos específicos com a cor correspondente do dashboard, em vez de
+        // deixar tudo preto — status por cor semântica, "À venda" em laranja quando Sim.
+        if (label === "Status") {
+          const cor = item.status === "tenho" ? COR_VERDE : item.status === "encomendado" ? COR_AMBAR : COR_AZUL;
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...cor);
+        } else if (label === "À venda" && valor === "Sim") {
+          doc.setFont(undefined, "bold");
+          doc.setTextColor(...COR_LARANJA);
+        }
         doc.text(texto, xTexto, yTexto);
+        doc.setFont(undefined, "normal");
+        doc.setTextColor(0);
         yTexto += avanco - 5;
       });
 
       y += alturaBloco;
-      doc.setDrawColor(230);
+      doc.setDrawColor(...COR_LINHA);
+      doc.setLineWidth(0.4);
       doc.line(margem, y - 4, margem + larguraUtil, y - 4);
+      doc.setLineWidth(0.2);
     }
 
     doc.save("colecao-selecionada.pdf");
