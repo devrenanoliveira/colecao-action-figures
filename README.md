@@ -15,7 +15,7 @@ Toda a coleção vive em **`data/colecao.csv`** — um arquivo de planilha simpl
 4. Role até o final da página e clique em **"Commit changes..."** para salvar direto na branch `main`.
 5. Pronto — o GitHub Actions detecta a mudança automaticamente, roda o script e atualiza o dashboard publicado em poucos minutos (sem precisar fazer mais nada).
 
-Se preferir editar em lote (mais rápido pra colar várias figures de uma vez), é mais fácil abrir esse CSV no Excel/Google Sheets, editar por lá, e depois colar o conteúdo de volta no editor do GitHub — só cuidado pra manter a primeira linha (cabeçalho) intacta. O script aceita tanto `,` quanto `;` como separador (detecta sozinho), então salvar pelo Excel em português — que usa `;` por padrão — funciona sem configurar nada.
+Se preferir editar em lote (mais rápido pra colar várias figures de uma vez), é mais fácil abrir esse CSV no Excel/Google Sheets, editar por lá, e depois colar o conteúdo de volta no editor do GitHub — só cuidado pra manter a primeira linha (cabeçalho) intacta. O script aceita tanto `,` quanto `;` como separador (detecta sozinho), então salvar pelo Excel em português — que usa `;` por padrão — funciona sem configurar nada. Também tolera o arquivo vir salvo em UTF-8 ou na codificação "ANSI"/Windows-1252 que o Excel às vezes usa (detecta automaticamente qual foi usada) — se algum acento aparecer estranho mesmo assim, o jeito mais seguro é salvar como **"CSV UTF-8 (delimitado por vírgulas)"** na hora de exportar do Excel/Planilhas Google. Os nomes das colunas também são flexíveis: variações como "Interesse na Venda" em vez de `interesse_venda` são reconhecidas automaticamente.
 
 ### Colunas do CSV
 
