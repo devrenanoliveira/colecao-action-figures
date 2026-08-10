@@ -1,17 +1,20 @@
 {
-  "atualizado_em": "10/08/2026 15:58",
+  "atualizado_em": "10/08/2026 20:24",
   "resumo": {
-    "total": 3,
-    "tenho": 1,
-    "encomendado": 1,
-    "quero": 1,
+    "total": 9,
+    "tenho": 9,
+    "encomendado": 0,
+    "quero": 0,
+    "a_venda": 6,
     "por_categoria": {
-      "Estatua": 2,
-      "Figure Articulada": 1
+      "Estátua": 9
     },
     "por_franquia": {
-      "Dragon Ball Z": 2,
-      "Demon Slayer": 1
+      "Dragon Ball Z": 4,
+      "Dragon Ball Super": 2,
+      "Dragon Ball Clássico": 1,
+      "Dragon Ball Heroes": 1,
+      "Dragon Ball GT": 1
     }
   },
   "status_labels": {
@@ -24,37 +27,118 @@
       "id": 1,
       "nome": "Goku Black",
       "linha_produto": "Match Makers",
-      "categoria": "Estatua",
-      "franquia": "Dragon Ball Z",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
       "status": "tenho",
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg",
       "link_mfc": "https://myfigurecollection.net/item/3108725",
-      "lancamento": "2026-04",
-      "observacao": "Novo e com a caixa original"
+      "lancamento": "abr/26",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": true
     },
     {
       "id": 2,
-      "nome": "Vegeta - S.H.Figuarts",
-      "linha_produto": null,
-      "categoria": "Figure Articulada",
-      "franquia": "Dragon Ball Z",
-      "status": "encomendado",
-      "imagem_url": "https://example.com/imagens/vegeta.jpg",
-      "link_mfc": "https://myfigurecollection.net/item/000001",
-      "lancamento": "2026-11",
-      "observacao": "Exemplo - edite ou apague esta linha"
+      "nome": "Goku Kid",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Clássico",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581736-4a076.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/581736",
+      "lancamento": "nov/17",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
     },
     {
       "id": 3,
-      "nome": "Nezuko Kamado - Pop Up Parade",
-      "linha_produto": null,
-      "categoria": "Estatua",
-      "franquia": "Demon Slayer",
-      "status": "quero",
-      "imagem_url": "https://example.com/imagens/nezuko.jpg",
-      "link_mfc": "https://myfigurecollection.net/item/000002",
-      "lancamento": null,
-      "observacao": "Exemplo - edite ou apague esta linha"
+      "nome": "Gogeta Ssj - Diorama",
+      "linha_produto": "Com:Figuration",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581738-dbd13.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/581738",
+      "lancamento": "dez/17",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 4,
+      "nome": "Goku e Vegeta - Diorama",
+      "linha_produto": "Com:Figuration",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581739-42999.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/581739",
+      "lancamento": "dez/17",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 5,
+      "nome": "Goku Ssj",
+      "linha_produto": "Jump 50th Anniversary",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/619280-bd1c9.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/619280",
+      "lancamento": "mar/18",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 6,
+      "nome": "Goku Blue Kaioken",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/638901-41de7.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/638901",
+      "lancamento": "mai/18",
+      "observacao": "Novo e com a caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 7,
+      "nome": "Gogeta Ssj Xeno",
+      "linha_produto": "DXF Figure",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Heroes",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/641132-961f0.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/641132",
+      "lancamento": "mai/18",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 8,
+      "nome": "Gogeta Ssj - Filme Janemba",
+      "linha_produto": "Colosseum Scultures",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/653856-0ec01.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/653856",
+      "lancamento": "ago/18",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 9,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/673607-c94d5.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/673607",
+      "lancamento": "jul/18",
+      "observacao": "Usado e com a caixa original",
+      "interesse_venda": true
     }
   ]
 }
