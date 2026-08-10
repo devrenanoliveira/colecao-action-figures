@@ -1,4 +1,4 @@
-nome,categoria,franquia,status,imagem_url,link_mfc,lancamento,observacao
-Son Goku - Figuarts ZERO,Estatua,Dragon Ball Z,tenho,https://example.com/imagens/goku.jpg,https://myfigurecollection.net/item/000000,2019-03,Exemplo - edite ou apague esta linha
-Vegeta - S.H.Figuarts,Figure Articulada,Dragon Ball Z,encomendado,https://example.com/imagens/vegeta.jpg,https://myfigurecollection.net/item/000001,2026-11,Exemplo - edite ou apague esta linha
-Nezuko Kamado - Pop Up Parade,Estatua,Demon Slayer,quero,https://example.com/imagens/nezuko.jpg,https://myfigurecollection.net/item/000002,,Exemplo - edite ou apague esta linha
+nome;linha;categoria;franquia;status;imagem_url;link_mfc;lancamento;observacao
+Goku Black;Match Makers;Estatua;Dragon Ball Z;tenho;https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg;https://myfigurecollection.net/item/3108725;2026-04;Novo e com a caixa original
+Vegeta - S.H.Figuarts;;Figure Articulada;Dragon Ball Z;encomendado;https://example.com/imagens/vegeta.jpg;https://myfigurecollection.net/item/000001;2026-11;Exemplo - edite ou apague esta linha
+Nezuko Kamado - Pop Up Parade;;Estatua;Demon Slayer;quero;https://example.com/imagens/nezuko.jpg;https://myfigurecollection.net/item/000002;;Exemplo - edite ou apague esta linha
