@@ -42,6 +42,8 @@ STATUS_LABEL = {
 
 COLUNAS_OBRIGATORIAS = ["nome", "status"]
 
+VALORES_SIM = {"sim", "s", "yes", "y", "true", "1"}
+
 
 def limpar_texto(valor):
     """Remove espaços extras e normaliza célula vazia/NaN para None."""
@@ -49,6 +51,13 @@ def limpar_texto(valor):
         return None
     valor = valor.strip()
     return valor if valor else None
+
+
+def normalizar_bool(valor):
+    """Converte texto livre (sim/não, s/n, yes/no...) em booleano. Vazio/ausente = False."""
+    if valor is None:
+        return False
+    return valor.strip().lower() in VALORES_SIM
 
 
 def normalizar_status(valor, linha_num):
@@ -110,6 +119,9 @@ def ler_csv():
             print(f"ERRO: {e}")
             sys.exit(1)
 
+        # Aceita alguns nomes alternativos pra coluna, caso o usuário digite diferente.
+        valor_venda = linha.get("interesse_venda", linha.get("venda", linha.get("a_venda")))
+
         item = {
             "id": i - 1,
             "nome": nome,
@@ -121,6 +133,7 @@ def ler_csv():
             "link_mfc": limpar_texto(linha.get("link_mfc")),
             "lancamento": limpar_texto(linha.get("lancamento")),
             "observacao": limpar_texto(linha.get("observacao")),
+            "interesse_venda": normalizar_bool(valor_venda),
         }
         itens.append(item)
 
@@ -133,17 +146,21 @@ def montar_resumo(itens):
     por_status = {"tenho": 0, "encomendado": 0, "quero": 0}
     por_categoria = {}
     por_franquia = {}
+    a_venda = 0
 
     for item in itens:
         por_status[item["status"]] += 1
         por_categoria[item["categoria"]] = por_categoria.get(item["categoria"], 0) + 1
         por_franquia[item["franquia"]] = por_franquia.get(item["franquia"], 0) + 1
+        if item["interesse_venda"]:
+            a_venda += 1
 
     return {
         "total": total,
         "tenho": por_status["tenho"],
         "encomendado": por_status["encomendado"],
         "quero": por_status["quero"],
+        "a_venda": a_venda,
         "por_categoria": dict(sorted(por_categoria.items(), key=lambda x: -x[1])),
         "por_franquia": dict(sorted(por_franquia.items(), key=lambda x: -x[1])),
     }
