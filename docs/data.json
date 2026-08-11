@@ -1,20 +1,20 @@
 {
-  "atualizado_em": "10/08/2026 22:20",
+  "atualizado_em": "10/08/2026 22:50",
   "resumo": {
-    "total": 63,
-    "tenho": 63,
-    "encomendado": 0,
+    "total": 106,
+    "tenho": 93,
+    "encomendado": 13,
     "quero": 0,
-    "a_venda": 9,
+    "a_venda": 10,
     "por_categoria": {
-      "Estátua": 63
+      "Estátua": 106
     },
     "por_franquia": {
-      "Dragon Ball Z": 25,
-      "Dragon Ball Super": 20,
-      "Dragon Ball GT": 13,
+      "Dragon Ball Z": 48,
+      "Dragon Ball Super": 33,
+      "Dragon Ball GT": 19,
       "Dragon Ball Heroes": 4,
-      "Dragon Ball Clássico": 1
+      "Dragon Ball Clássico": 2
     }
   },
   "status_labels": {
@@ -25,19 +25,6 @@
   "itens": [
     {
       "id": 1,
-      "nome": "Goku Black Rosé",
-      "linha_produto": "Match Makers",
-      "categoria": "Estátua",
-      "franquia": "Dragon Ball Super",
-      "status": "tenho",
-      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg",
-      "link_mfc": "https://myfigurecollection.net/item/3108725",
-      "lancamento": "abr/26",
-      "observacao": "Com caixa original",
-      "interesse_venda": true
-    },
-    {
-      "id": 2,
       "nome": "Goku Kid",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -50,7 +37,7 @@
       "interesse_venda": false
     },
     {
-      "id": 3,
+      "id": 2,
       "nome": "Gogeta Ssj - Diorama",
       "linha_produto": "Com:Figuration",
       "categoria": "Estátua",
@@ -63,7 +50,7 @@
       "interesse_venda": true
     },
     {
-      "id": 4,
+      "id": 3,
       "nome": "Goku e Vegeta - Diorama",
       "linha_produto": "Com:Figuration",
       "categoria": "Estátua",
@@ -76,7 +63,7 @@
       "interesse_venda": true
     },
     {
-      "id": 5,
+      "id": 4,
       "nome": "Goku Ssj",
       "linha_produto": "Jump 50th Anniversary",
       "categoria": "Estátua",
@@ -89,7 +76,7 @@
       "interesse_venda": false
     },
     {
-      "id": 6,
+      "id": 5,
       "nome": "Goku Blue Kaioken",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -102,7 +89,7 @@
       "interesse_venda": false
     },
     {
-      "id": 7,
+      "id": 6,
       "nome": "Gogeta Ssj Xeno",
       "linha_produto": "DXF Figure",
       "categoria": "Estátua",
@@ -115,7 +102,7 @@
       "interesse_venda": true
     },
     {
-      "id": 8,
+      "id": 7,
       "nome": "Gogeta Ssj - Filme Janemba",
       "linha_produto": "Colosseum Scultures",
       "categoria": "Estátua",
@@ -128,7 +115,7 @@
       "interesse_venda": true
     },
     {
-      "id": 9,
+      "id": 8,
       "nome": "Gogeta Ssj4",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -141,7 +128,7 @@
       "interesse_venda": false
     },
     {
-      "id": 10,
+      "id": 9,
       "nome": "Goku Ssj3",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -154,7 +141,7 @@
       "interesse_venda": false
     },
     {
-      "id": 11,
+      "id": 10,
       "nome": "Goku Ssj4",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -167,7 +154,7 @@
       "interesse_venda": false
     },
     {
-      "id": 12,
+      "id": 11,
       "nome": "Freeza",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -180,7 +167,7 @@
       "interesse_venda": false
     },
     {
-      "id": 13,
+      "id": 12,
       "nome": "Goku",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -193,7 +180,7 @@
       "interesse_venda": false
     },
     {
-      "id": 14,
+      "id": 13,
       "nome": "Vegeta Ssj4",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -206,7 +193,7 @@
       "interesse_venda": false
     },
     {
-      "id": 15,
+      "id": 14,
       "nome": "Goku Ssj4",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -219,7 +206,7 @@
       "interesse_venda": false
     },
     {
-      "id": 16,
+      "id": 15,
       "nome": "Goku UI",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -232,7 +219,7 @@
       "interesse_venda": true
     },
     {
-      "id": 17,
+      "id": 16,
       "nome": "Goku Ssj4",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -245,7 +232,7 @@
       "interesse_venda": false
     },
     {
-      "id": 18,
+      "id": 17,
       "nome": "Vegeta Ssj4",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -258,7 +245,7 @@
       "interesse_venda": false
     },
     {
-      "id": 19,
+      "id": 18,
       "nome": "Broly Ssj - Super",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -271,7 +258,7 @@
       "interesse_venda": false
     },
     {
-      "id": 20,
+      "id": 19,
       "nome": "Goku Ssj Blue",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -284,7 +271,7 @@
       "interesse_venda": false
     },
     {
-      "id": 21,
+      "id": 20,
       "nome": "Vegeta Ssj Blue",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -297,7 +284,7 @@
       "interesse_venda": false
     },
     {
-      "id": 22,
+      "id": 21,
       "nome": "Goku Ssj4 Xeno",
       "linha_produto": "SDBH 9th Anniversary",
       "categoria": "Estátua",
@@ -310,7 +297,7 @@
       "interesse_venda": false
     },
     {
-      "id": 23,
+      "id": 22,
       "nome": "Vegito Blue",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -323,7 +310,7 @@
       "interesse_venda": false
     },
     {
-      "id": 24,
+      "id": 23,
       "nome": "Majin Vegeta",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -336,7 +323,7 @@
       "interesse_venda": false
     },
     {
-      "id": 25,
+      "id": 24,
       "nome": "Goku Ssj2",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -349,7 +336,7 @@
       "interesse_venda": false
     },
     {
-      "id": 26,
+      "id": 25,
       "nome": "Gogeta Ssj4 Xeno",
       "linha_produto": "SDBH 9th Anniversary",
       "categoria": "Estátua",
@@ -362,7 +349,7 @@
       "interesse_venda": false
     },
     {
-      "id": 27,
+      "id": 26,
       "nome": "Vegeta Ssj4 Xeno",
       "linha_produto": "SDBH 9th Anniversary",
       "categoria": "Estátua",
@@ -375,7 +362,7 @@
       "interesse_venda": false
     },
     {
-      "id": 28,
+      "id": 27,
       "nome": "Vegito Ssj",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -388,7 +375,7 @@
       "interesse_venda": false
     },
     {
-      "id": 29,
+      "id": 28,
       "nome": "Goku UI",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -401,7 +388,7 @@
       "interesse_venda": false
     },
     {
-      "id": 30,
+      "id": 29,
       "nome": "Vegeta Blue",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -414,7 +401,7 @@
       "interesse_venda": false
     },
     {
-      "id": 31,
+      "id": 30,
       "nome": "Gogeta Ssj4",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -427,7 +414,7 @@
       "interesse_venda": false
     },
     {
-      "id": 32,
+      "id": 31,
       "nome": "Vegito Ssj",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -440,7 +427,7 @@
       "interesse_venda": false
     },
     {
-      "id": 33,
+      "id": 32,
       "nome": "Gogeta Ssj - Filme Janemba",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -453,7 +440,7 @@
       "interesse_venda": false
     },
     {
-      "id": 34,
+      "id": 33,
       "nome": "Goku Black Rosé",
       "linha_produto": "Awakening Warriors",
       "categoria": "Estátua",
@@ -466,7 +453,7 @@
       "interesse_venda": false
     },
     {
-      "id": 35,
+      "id": 34,
       "nome": "Gogeta Ssj - Super",
       "linha_produto": "Rising Fighters - Dragon Ball Legends",
       "categoria": "Estátua",
@@ -479,7 +466,7 @@
       "interesse_venda": false
     },
     {
-      "id": 36,
+      "id": 35,
       "nome": "Broly Ssj - Super",
       "linha_produto": "Rising Fighters - Dragon Ball Legends",
       "categoria": "Estátua",
@@ -492,7 +479,7 @@
       "interesse_venda": false
     },
     {
-      "id": 37,
+      "id": 36,
       "nome": "Vegito Ssj",
       "linha_produto": "Rising Fighters - Dragon Ball Legends",
       "categoria": "Estátua",
@@ -505,7 +492,7 @@
       "interesse_venda": false
     },
     {
-      "id": 38,
+      "id": 37,
       "nome": "Gogeta Ssj - Filme Janemba",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -518,7 +505,7 @@
       "interesse_venda": false
     },
     {
-      "id": 39,
+      "id": 38,
       "nome": "Goku Ssj4",
       "linha_produto": "Dragon Ball GT Collection",
       "categoria": "Estátua",
@@ -531,7 +518,7 @@
       "interesse_venda": false
     },
     {
-      "id": 40,
+      "id": 39,
       "nome": "Vegeta Ssj4",
       "linha_produto": "Dragon Ball GT Collection",
       "categoria": "Estátua",
@@ -544,7 +531,7 @@
       "interesse_venda": false
     },
     {
-      "id": 41,
+      "id": 40,
       "nome": "Gogeta Ssj4",
       "linha_produto": "Dragon Ball GT Collection",
       "categoria": "Estátua",
@@ -557,7 +544,7 @@
       "interesse_venda": false
     },
     {
-      "id": 42,
+      "id": 41,
       "nome": "Goku Ssj",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -570,7 +557,7 @@
       "interesse_venda": false
     },
     {
-      "id": 43,
+      "id": 42,
       "nome": "Vegito Ssj",
       "linha_produto": "Dragon Ball Legends Collab",
       "categoria": "Estátua",
@@ -583,7 +570,7 @@
       "interesse_venda": false
     },
     {
-      "id": 44,
+      "id": 43,
       "nome": "Goku Ssj e Bardock",
       "linha_produto": "Rising Fighters - Dragon Ball Legends",
       "categoria": "Estátua",
@@ -596,7 +583,7 @@
       "interesse_venda": true
     },
     {
-      "id": 45,
+      "id": 44,
       "nome": "Goku Kaioken",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -609,7 +596,7 @@
       "interesse_venda": false
     },
     {
-      "id": 46,
+      "id": 45,
       "nome": "Goku Ssj4",
       "linha_produto": "FES!!",
       "categoria": "Estátua",
@@ -622,7 +609,7 @@
       "interesse_venda": false
     },
     {
-      "id": 47,
+      "id": 46,
       "nome": "Vegeta Ssj4",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -635,7 +622,7 @@
       "interesse_venda": false
     },
     {
-      "id": 48,
+      "id": 47,
       "nome": "Goku Ssj4",
       "linha_produto": "Tag Fighters",
       "categoria": "Estátua",
@@ -648,7 +635,7 @@
       "interesse_venda": false
     },
     {
-      "id": 49,
+      "id": 48,
       "nome": "Vegeta God",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -661,7 +648,7 @@
       "interesse_venda": false
     },
     {
-      "id": 50,
+      "id": 49,
       "nome": "Goku God",
       "linha_produto": "Dokkan Battle",
       "categoria": "Estátua",
@@ -674,7 +661,7 @@
       "interesse_venda": false
     },
     {
-      "id": 51,
+      "id": 50,
       "nome": "Gohan Ssj",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -687,7 +674,7 @@
       "interesse_venda": true
     },
     {
-      "id": 52,
+      "id": 51,
       "nome": "Goku",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -700,7 +687,7 @@
       "interesse_venda": false
     },
     {
-      "id": 53,
+      "id": 52,
       "nome": "Freeza",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -713,7 +700,7 @@
       "interesse_venda": false
     },
     {
-      "id": 54,
+      "id": 53,
       "nome": "Gohan Beast",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -726,7 +713,7 @@
       "interesse_venda": false
     },
     {
-      "id": 55,
+      "id": 54,
       "nome": "Vegito Ssj",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -739,7 +726,7 @@
       "interesse_venda": false
     },
     {
-      "id": 56,
+      "id": 55,
       "nome": "Majin Buu - Gohan Absorvido",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -752,7 +739,7 @@
       "interesse_venda": false
     },
     {
-      "id": 57,
+      "id": 56,
       "nome": "Vegeta",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -765,7 +752,7 @@
       "interesse_venda": false
     },
     {
-      "id": 58,
+      "id": 57,
       "nome": "Goku Kaioken x3",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
@@ -778,7 +765,7 @@
       "interesse_venda": false
     },
     {
-      "id": 59,
+      "id": 58,
       "nome": "Gotenks",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -791,7 +778,7 @@
       "interesse_venda": false
     },
     {
-      "id": 60,
+      "id": 59,
       "nome": "Gogeta Blue",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -804,7 +791,7 @@
       "interesse_venda": false
     },
     {
-      "id": 61,
+      "id": 60,
       "nome": "Vegito Blue",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -817,7 +804,7 @@
       "interesse_venda": false
     },
     {
-      "id": 62,
+      "id": 61,
       "nome": "Goku MUI",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -830,7 +817,7 @@
       "interesse_venda": true
     },
     {
-      "id": 63,
+      "id": 62,
       "nome": "Goku Ssj3",
       "linha_produto": "Blood of Saiyans",
       "categoria": "Estátua",
@@ -839,6 +826,578 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2048729-d8672.jpg",
       "link_mfc": "https://myfigurecollection.net/item/2048729",
       "lancamento": "jun/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 63,
+      "nome": "Cooler - Final Form",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150177-02ce8.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150177",
+      "lancamento": "jul/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 64,
+      "nome": "Goku Ssj",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150179-f74fc.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150179",
+      "lancamento": "jul/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 65,
+      "nome": "Broly Ssj Full Power - Super",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150192-7d6c2.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150192",
+      "lancamento": "ago/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 66,
+      "nome": "Gogeta Blue",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150191-7d94d.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150191",
+      "lancamento": "ago/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 67,
+      "nome": "Super 17",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150201-79da3.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150201",
+      "lancamento": "set/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 68,
+      "nome": "Goku Kid Ssj",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2150203-f90f0.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2150203",
+      "lancamento": "set/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 69,
+      "nome": "Bardock",
+      "linha_produto": "GxMateria",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2263304-12474.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2263304",
+      "lancamento": "out/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 70,
+      "nome": "Janemba",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2263311-a241c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2263311",
+      "lancamento": "nov/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 71,
+      "nome": "Gogeta Ssj - Filme Janemba",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2263313-7119f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2263313",
+      "lancamento": "nov/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 72,
+      "nome": "Broly Ssj - DBZ",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2263319-82664.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2263319",
+      "lancamento": "dez/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 73,
+      "nome": "Turles",
+      "linha_produto": "GxMateria",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2387143-2b288.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2387143",
+      "lancamento": "dez/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 74,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2401069-45826.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2401069",
+      "lancamento": "jan/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 75,
+      "nome": "Cell - Perfect Form",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2401076-26c08.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2401076",
+      "lancamento": "fev/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 76,
+      "nome": "Gohan Ssj2",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2401079-acfdd.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2401079",
+      "lancamento": "fev/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 77,
+      "nome": "Goku God",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2527083-0b7bf.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2527083",
+      "lancamento": "jun/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 78,
+      "nome": "Beerus",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2527086-6fdd9.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2527086",
+      "lancamento": "jun/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 79,
+      "nome": "Goku Blue",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2657181-2461b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2657181",
+      "lancamento": "jul/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 80,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2663755-a8d06.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2663755",
+      "lancamento": "jul/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 81,
+      "nome": "Gogeta Ssj - Filme Janemba",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2663757-40524.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2663757",
+      "lancamento": "jul/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 82,
+      "nome": "Trunks Ssj",
+      "linha_produto": "GxMateria",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2801384-a6959.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2801384",
+      "lancamento": "dez/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 83,
+      "nome": "Freeza Pod",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2951680-db4ce.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2951680",
+      "lancamento": "mar/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 84,
+      "nome": "Goku Black Rosé",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3108725",
+      "lancamento": "abr/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 85,
+      "nome": "Goku Blue",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108726-16b83.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3108726",
+      "lancamento": "abr/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 86,
+      "nome": "Gohan Ssj",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3112426-8c99d.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3112426",
+      "lancamento": "abr/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 87,
+      "nome": "Goten Ssj",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3112427-52d6c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3112427",
+      "lancamento": "abr/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 88,
+      "nome": "Goku Ssj",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3113714-872ba.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3113714",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 89,
+      "nome": "Goku Kid",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Clássico",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3180345-1e0cb.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3180345",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 90,
+      "nome": "Goku Ssj",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3180348-52575.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3180348",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 91,
+      "nome": "Goku Ssj2",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3180349-2d391.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3180349",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 92,
+      "nome": "Goku MUI",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3180351-3760a.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3180351",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 93,
+      "nome": "Majin Vegeta",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3180350-5d350.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3180350",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 94,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/797494-999f9.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/797494",
+      "lancamento": "jul/19",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 95,
+      "nome": "Gogeta Blue",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/903203-a11f5.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/903203",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 96,
+      "nome": "Goku Ssj",
+      "linha_produto": "Toyotarou - Father-son Kamehameha",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1033307-6e6d8.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1033307",
+      "lancamento": "dez/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 97,
+      "nome": "Bardock",
+      "linha_produto": "Toyotarou - Father-son Kamehameha",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1033313-e6043.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1033313",
+      "lancamento": "dez/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 98,
+      "nome": "Goku God",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1045678-3c25c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1045678",
+      "lancamento": "fev/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 99,
+      "nome": "Goku MUI",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1123843-d33e8.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1123843",
+      "lancamento": "fev/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 100,
+      "nome": "Vegeta Blue Evolutionn",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1123847-c5aa9.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1123847",
+      "lancamento": "fev/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 101,
+      "nome": "Broly Ssj Full Power - Super",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1851337-fea70.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1851337",
+      "lancamento": "dez/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 102,
+      "nome": "Freeza Full Power",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1907901-660ae.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1907901",
+      "lancamento": "out/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 103,
+      "nome": "Goku MUI e Gohan Beast",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2878577-7359d.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2878577",
+      "lancamento": "jul/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 104,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3113725-1583b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3113725",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 105,
+      "nome": "Omega Shenron",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3113722-69f9b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3113722",
+      "lancamento": "mai/26",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 106,
+      "nome": "Vegeta",
+      "linha_produto": "Masterlise",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "encomendado",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3353306-bbc44.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/3353306",
+      "lancamento": "jul/26",
       "observacao": "Com caixa original",
       "interesse_venda": false
     }
