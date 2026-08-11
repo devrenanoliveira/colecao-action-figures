@@ -317,7 +317,11 @@ async function imagemParaDataUrl(url, timeoutMs = 7000) {
   const direto = await comTimeout(tentarDireto, timeoutMs);
   if (direto) return direto;
 
-  const urlProxy = `https://wsrv.nl/?url=${encodeURIComponent(url)}&output=jpg`;
+  // Importante: o wsrv.nl espera a URL de origem SEM o protocolo (ele mesmo assume https)
+  // e com as barras "/" intactas — usar encodeURIComponent aqui (que também converte "/"
+  // em "%2F") faz o serviço não conseguir separar domínio de caminho e a busca falha.
+  const semProtocolo = url.replace(/^https?:\/\//i, "");
+  const urlProxy = `https://wsrv.nl/?url=${encodeURI(semProtocolo)}&output=jpg`;
   const tentarProxy = fetch(urlProxy, { mode: "cors" })
     .then((r) => (r.ok ? r.blob() : Promise.reject(new Error("HTTP " + r.status))))
     .then(blobParaDataUrl)
