@@ -284,6 +284,15 @@ function atualizarBarraSelecao() {
   bar.hidden = count === 0;
 }
 
+// Pega até 2 iniciais do nome da figure (ex: "Goku Black" → "GB") pro avatar
+// que aparece no PDF quando não tem imagem disponível.
+function obterIniciais(nome) {
+  if (!nome) return "?";
+  const palavras = nome.trim().split(/\s+/).filter(Boolean);
+  const letras = palavras.slice(0, 2).map((p) => p[0].toUpperCase());
+  return letras.join("") || "?";
+}
+
 // Busca uma imagem por URL e converte pra data URL (base64) pro jsPDF conseguir
 // embutir no PDF. Se a imagem falhar (CORS, link quebrado, offline, demorar
 // demais), resolve com null em vez de travar a geração do PDF inteiro.
@@ -430,11 +439,26 @@ async function gerarPdfSelecionados() {
           doc.rect(margem, y, larguraImg, alturaImg);
         }
       } else {
+        // Sem imagem disponível (bloqueio de CORS no link de origem) — em vez de deixar o
+        // espaço em branco/"Sem imagem", desenha um avatar circular com as iniciais do
+        // nome da figure, no estilo das cores do dashboard, alternando azul/laranja.
+        doc.setFillColor(255, 248, 238); // fundo creme claro (--surface)
         doc.setDrawColor(...COR_LINHA);
-        doc.rect(margem, y, larguraImg, alturaImg);
-        doc.setFontSize(7);
-        doc.setTextColor(...COR_CINZA);
-        doc.text("Sem imagem", margem + 4, y + alturaImg / 2);
+        doc.roundedRect(margem, y, larguraImg, alturaImg, 2, 2, "FD");
+
+        const corAvatar = item.id % 2 === 0 ? COR_AZUL : COR_LARANJA;
+        const cx = margem + larguraImg / 2;
+        const cy = y + alturaImg / 2;
+        const raio = Math.min(larguraImg, alturaImg) / 2 - 4;
+        doc.setFillColor(...corAvatar);
+        doc.circle(cx, cy, raio, "F");
+
+        const iniciais = obterIniciais(item.nome);
+        doc.setFont(undefined, "bold");
+        doc.setFontSize(iniciais.length > 1 ? 13 : 16);
+        doc.setTextColor(255, 255, 255);
+        doc.text(iniciais, cx, cy, { align: "center", baseline: "middle" });
+        doc.setFont(undefined, "normal");
         doc.setTextColor(0);
       }
 
