@@ -106,20 +106,24 @@ body {
 .tab-nav::-webkit-scrollbar { display: none; }
 
 .tab-btn {
-  padding: 10px 18px;
+  padding: 15px 24px;
   border: none;
   background: none;
-  color: rgba(255,255,255,.6);
-  font-size: .78rem;
-  font-weight: 500;
+  color: rgba(255,255,255,.65);
+  font-size: 1rem;
+  font-weight: 700;
   cursor: pointer;
   white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color .15s, border-color .15s;
+  border-bottom: 4px solid transparent;
+  transition: color .15s, border-color .15s, background-color .15s;
   letter-spacing: .01em;
 }
-.tab-btn:hover  { color: rgba(255,255,255,.9); }
-.tab-btn.active { color: #fff; border-bottom-color: var(--brand-gold); }
+.tab-btn:hover  { color: rgba(255,255,255,.95); background: rgba(255,255,255,.06); }
+.tab-btn.active {
+  color: #fff;
+  border-bottom-color: var(--brand-gold);
+  background: rgba(255,255,255,.08);
+}
 
 /* ── PANELS ──────────────────────────────────────────── */
 .tab-panel { display: none; padding: 24px 28px; max-width: 1440px; margin: 0 auto; }
@@ -548,7 +552,7 @@ tbody tr.row-global td {
   .header-sep, .header-title { display: none; }
   .logo { font-size: 1.2rem; }
   .header-update { font-size: .65rem; }
-  .tab-btn { padding: 8px 12px; font-size: .72rem; }
+  .tab-btn { padding: 12px 16px; font-size: .86rem; }
   .tab-nav { padding: 0 8px; }
   .tab-panel { padding: 12px; }
   .sec-title { font-size: 1.15rem; }
@@ -570,7 +574,7 @@ tbody tr.row-global td {
 
 /* ── MOBILE MUITO PEQUENO (≤ 360px) ─────────────────── */
 @media (max-width: 360px) {
-  .tab-btn { padding: 7px 10px; font-size: .68rem; }
+  .tab-btn { padding: 10px 12px; font-size: .78rem; }
   .kpi-value { font-size: 1.3rem; }
   .perf-big  { font-size: 1.5rem; }
   .chart-wrap.h300 { height: 180px; }
@@ -638,9 +642,10 @@ body.dark #logoDark         { display: block !important; }
   border-radius: 8px;
   /* Trava o filtro logo abaixo das abas (que ficam presas no topo, ver .tab-nav) —
      top precisa bater com a altura real da barra de abas pra não sobrepor nem deixar
-     brecha; os 37px/31px vêm do valor medido da .tab-nav em desktop/mobile. */
+     brecha. O valor muda conforme a .tab-nav fica mais baixa nos breakpoints móveis
+     (ver overrides de "top" em @media max-width:480px e max-width:360px abaixo). */
   position: sticky;
-  top: 37px;
+  top: 53px;
   z-index: 30;
   box-shadow: 0 4px 10px rgba(0,0,0,.06);
 }
@@ -667,6 +672,9 @@ body.dark #logoDark         { display: block !important; }
   font-family: inherit;
 }
 .filtro-select:focus { outline: 2px solid var(--brand-blue-light); outline-offset: 1px; }
+/* Campo de busca por nome — mais largo que os selects, pra caber texto digitado. */
+.filtro-busca { flex: 1 1 240px; min-width: 200px; }
+.filtro-input-busca { width: 100%; box-sizing: border-box; }
 .filtro-limpar {
   padding: 6px 14px;
   border: 1px solid var(--brand-gold);
@@ -682,8 +690,19 @@ body.dark #logoDark         { display: block !important; }
 body.dark .figure-filters { border-color: #4a2f10; }
 body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: #f1f5f9; }
 @media (max-width: 600px) {
-  .figure-filters { gap: 8px; padding: 10px; top: 31px; }
+  .figure-filters { gap: 8px; padding: 10px; }
   .filtro-grupo { min-width: 120px; flex: 1 1 120px; }
+  .filtro-busca { min-width: 100%; flex-basis: 100%; }
+}
+/* Ajuste do "top" do sticky pra acompanhar a altura real da .tab-nav nesses
+   breakpoints (ela fica mais baixa conforme .tab-btn encolhe) — precisa vir DEPOIS
+   da regra base ".figure-filters { top: 53px }" acima, senão a cascata (mesma
+   especificidade, ordem de declaração) faria a base vencer mesmo dentro do media query. */
+@media (max-width: 480px) {
+  .figure-filters { top: 44px; }
+}
+@media (max-width: 360px) {
+  .figure-filters { top: 39px; }
 }
 
 /* ── FIGURE GRID / FIGURE CARD (galeria de action figures) ──── */

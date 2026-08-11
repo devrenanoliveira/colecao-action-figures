@@ -111,6 +111,17 @@ function extrairAno(lancamento) {
   return anoCurto ? `20${anoCurto[1]}` : null;
 }
 
+// Normaliza texto pra busca: minúsculo + sem acento, pra "goku" achar "Gokū"/"Gôku"
+// e a pessoa não precisar digitar acento certinho pra encontrar a figure.
+function normalizarBusca(texto) {
+  if (!texto) return "";
+  return texto
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
 function valoresUnicos(itensDoStatus, extractor) {
   const set = new Set();
   itensDoStatus.forEach((item) => {
@@ -174,6 +185,11 @@ function initFiltros(status, itens) {
   // pra ficar grudado enquanto a lista de baixo rola.
   container.className = "figure-filters";
   container.innerHTML = `
+      <div class="filtro-grupo filtro-busca">
+        <label class="filtro-label" for="f-busca-${status}">Buscar</label>
+        <input type="search" id="f-busca-${status}" class="filtro-select filtro-input-busca"
+               placeholder="Nome da figure (ex: Goku, Vegeta...)" autocomplete="off">
+      </div>
       ${campo(`f-franquia-${status}`, "Franquia", franquias)}
       ${campo(`f-linha-${status}`, "Linha", linhas)}
       ${campo(`f-categoria-${status}`, "Categoria", categorias)}
@@ -182,6 +198,7 @@ function initFiltros(status, itens) {
       <button type="button" class="filtro-limpar" id="f-limpar-${status}">Limpar filtros</button>`;
 
   const aplicar = () => {
+    const vBusca = normalizarBusca(document.getElementById(`f-busca-${status}`).value);
     const vFranquia = document.getElementById(`f-franquia-${status}`).value;
     const vLinha = document.getElementById(`f-linha-${status}`).value;
     const vCategoria = document.getElementById(`f-categoria-${status}`).value;
@@ -189,6 +206,7 @@ function initFiltros(status, itens) {
     const vVenda = document.getElementById(`f-venda-${status}`).value;
 
     const filtrados = itensDoStatus.filter((item) => {
+      if (vBusca && !normalizarBusca(item.nome).includes(vBusca)) return false;
       if (vFranquia && item.franquia !== vFranquia) return false;
       if (vLinha && item.linha_produto !== vLinha) return false;
       if (vCategoria && item.categoria !== vCategoria) return false;
@@ -201,10 +219,14 @@ function initFiltros(status, itens) {
     renderCards(`grid-${status}`, filtrados, "Nenhum item encontrado com esses filtros.");
   };
 
+  // "input" (não "change") pro resultado atualizar a cada letra digitada, sem precisar
+  // sair do campo ou apertar Enter.
+  document.getElementById(`f-busca-${status}`).addEventListener("input", aplicar);
   ["franquia", "linha", "categoria", "ano", "venda"].forEach((campoId) => {
     document.getElementById(`f-${campoId}-${status}`).addEventListener("change", aplicar);
   });
   document.getElementById(`f-limpar-${status}`).addEventListener("click", () => {
+    document.getElementById(`f-busca-${status}`).value = "";
     ["franquia", "linha", "categoria", "ano", "venda"].forEach((campoId) => {
       document.getElementById(`f-${campoId}-${status}`).value = "";
     });
