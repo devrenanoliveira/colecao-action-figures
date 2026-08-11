@@ -1,20 +1,20 @@
 {
-  "atualizado_em": "10/08/2026 20:40",
+  "atualizado_em": "10/08/2026 22:20",
   "resumo": {
-    "total": 21,
-    "tenho": 21,
+    "total": 63,
+    "tenho": 63,
     "encomendado": 0,
     "quero": 0,
-    "a_venda": 6,
+    "a_venda": 9,
     "por_categoria": {
-      "Estátua": 21
+      "Estátua": 63
     },
     "por_franquia": {
-      "Dragon Ball Super": 8,
-      "Dragon Ball GT": 6,
-      "Dragon Ball Z": 5,
-      "Dragon Ball Clássico": 1,
-      "Dragon Ball Heroes": 1
+      "Dragon Ball Z": 25,
+      "Dragon Ball Super": 20,
+      "Dragon Ball GT": 13,
+      "Dragon Ball Heroes": 4,
+      "Dragon Ball Clássico": 1
     }
   },
   "status_labels": {
@@ -25,7 +25,7 @@
   "itens": [
     {
       "id": 1,
-      "nome": "Goku Black",
+      "nome": "Goku Black Rosé",
       "linha_produto": "Match Makers",
       "categoria": "Estátua",
       "franquia": "Dragon Ball Super",
@@ -33,7 +33,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/3108725-7905f.jpg",
       "link_mfc": "https://myfigurecollection.net/item/3108725",
       "lancamento": "abr/26",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -46,7 +46,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581736-4a076.jpg",
       "link_mfc": "https://myfigurecollection.net/item/581736",
       "lancamento": "nov/17",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -59,7 +59,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581738-dbd13.jpg",
       "link_mfc": "https://myfigurecollection.net/item/581738",
       "lancamento": "dez/17",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -72,7 +72,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/581739-42999.jpg",
       "link_mfc": "https://myfigurecollection.net/item/581739",
       "lancamento": "dez/17",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -85,7 +85,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/619280-bd1c9.jpg",
       "link_mfc": "https://myfigurecollection.net/item/619280",
       "lancamento": "mar/18",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -98,7 +98,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/638901-41de7.jpg",
       "link_mfc": "https://myfigurecollection.net/item/638901",
       "lancamento": "mai/18",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -111,7 +111,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/641132-961f0.jpg",
       "link_mfc": "https://myfigurecollection.net/item/641132",
       "lancamento": "mai/18",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -124,7 +124,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/653856-0ec01.jpg",
       "link_mfc": "https://myfigurecollection.net/item/653856",
       "lancamento": "ago/18",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -137,7 +137,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/673607-c94d5.jpg",
       "link_mfc": "https://myfigurecollection.net/item/673607",
       "lancamento": "jul/18",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -150,7 +150,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/684072-91fa2.jpg",
       "link_mfc": "https://myfigurecollection.net/item/684072",
       "lancamento": "jul/18",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -163,7 +163,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/684074-68cfc.jpg",
       "link_mfc": "https://myfigurecollection.net/item/684074",
       "lancamento": "jul/18",
-      "observacao": "Usado e sem a caixa original",
+      "observacao": "Sem caixa original",
       "interesse_venda": false
     },
     {
@@ -176,7 +176,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753864-ed426.jpg",
       "link_mfc": "https://myfigurecollection.net/item/753864",
       "lancamento": "fev/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -189,7 +189,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753865-99c30.jpg",
       "link_mfc": "https://myfigurecollection.net/item/753865",
       "lancamento": "fev/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -202,7 +202,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/753965-dbc90.jpg",
       "link_mfc": "https://myfigurecollection.net/item/753965",
       "lancamento": "fev/19",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -215,7 +215,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/801856-15be5.jpg",
       "link_mfc": "https://myfigurecollection.net/item/801856",
       "lancamento": "fev/19",
-      "observacao": "Usado e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -228,7 +228,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/775036-8e05f.jpg",
       "link_mfc": "https://myfigurecollection.net/item/775036",
       "lancamento": "abr/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": true
     },
     {
@@ -241,7 +241,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/775041-7c10a.jpg",
       "link_mfc": "https://myfigurecollection.net/item/775041",
       "lancamento": "mai/19",
-      "observacao": "Usado e sem a caixa original",
+      "observacao": "Sem caixa original",
       "interesse_venda": false
     },
     {
@@ -254,7 +254,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/777708-4fe3f.jpg",
       "link_mfc": "https://myfigurecollection.net/item/777708",
       "lancamento": "jun/19",
-      "observacao": "Usado e sem a caixa original",
+      "observacao": "Sem caixa original",
       "interesse_venda": false
     },
     {
@@ -267,7 +267,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/813045-e5e88.jpg",
       "link_mfc": "https://myfigurecollection.net/item/813045",
       "lancamento": "set/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -280,7 +280,7 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/830090-09b5a.jpg",
       "link_mfc": "https://myfigurecollection.net/item/830090",
       "lancamento": "ago/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     },
     {
@@ -293,7 +293,553 @@
       "imagem_url": "https://static.myfigurecollection.net/upload/items/1/830091-cae10.jpg",
       "link_mfc": "https://myfigurecollection.net/item/830091",
       "lancamento": "ago/19",
-      "observacao": "Novo e com a caixa original",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 22,
+      "nome": "Goku Ssj4 Xeno",
+      "linha_produto": "SDBH 9th Anniversary",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Heroes",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/836936-9b3af.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/836936",
+      "lancamento": "nov/19",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 23,
+      "nome": "Vegito Blue",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/836938-2ab60.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/836938",
+      "lancamento": "out/19",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 24,
+      "nome": "Majin Vegeta",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/849604-b7b7f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/849604",
+      "lancamento": "dez/19",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 25,
+      "nome": "Goku Ssj2",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/849605-d679c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/849605",
+      "lancamento": "dez/19",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 26,
+      "nome": "Gogeta Ssj4 Xeno",
+      "linha_produto": "SDBH 9th Anniversary",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Heroes",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/874844-b6d50.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/874844",
+      "lancamento": "jan/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 27,
+      "nome": "Vegeta Ssj4 Xeno",
+      "linha_produto": "SDBH 9th Anniversary",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Heroes",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/911404-f94e3.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/911404",
+      "lancamento": "abr/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 28,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/945482-42368.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/945482",
+      "lancamento": "ago/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 29,
+      "nome": "Goku UI",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946826-23cb7.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946826",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 30,
+      "nome": "Vegeta Blue",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946827-d6a1c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946827",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 31,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946829-bbc35.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946829",
+      "lancamento": "fev/20",
+      "observacao": "Sem caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 32,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946830-88aa6.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946830",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 33,
+      "nome": "Gogeta Ssj - Filme Janemba",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946831-e28db.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946831",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 34,
+      "nome": "Goku Black Rosé",
+      "linha_produto": "Awakening Warriors",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/946832-4b0e0.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/946832",
+      "lancamento": "fev/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 35,
+      "nome": "Gogeta Ssj - Super",
+      "linha_produto": "Rising Fighters - Dragon Ball Legends",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/950319-ddbfb.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/950319",
+      "lancamento": "jul/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 36,
+      "nome": "Broly Ssj - Super",
+      "linha_produto": "Rising Fighters - Dragon Ball Legends",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/950320-172c6.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/950320",
+      "lancamento": "jul/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 37,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Rising Fighters - Dragon Ball Legends",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/950321-3a8f4.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/950321",
+      "lancamento": "jul/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 38,
+      "nome": "Gogeta Ssj - Filme Janemba",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/964856-a37d2.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/964856",
+      "lancamento": "nov/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 39,
+      "nome": "Goku Ssj4",
+      "linha_produto": "Dragon Ball GT Collection",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/964863-897dd.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/964863",
+      "lancamento": "out/20",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 40,
+      "nome": "Vegeta Ssj4",
+      "linha_produto": "Dragon Ball GT Collection",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1042527-0ffdb.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1042527",
+      "lancamento": "jan/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 41,
+      "nome": "Gogeta Ssj4",
+      "linha_produto": "Dragon Ball GT Collection",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1067024-2c47b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1067024",
+      "lancamento": "mar/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 42,
+      "nome": "Goku Ssj",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1066977-3229d.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1066977",
+      "lancamento": "mar/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 43,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Dragon Ball Legends Collab",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1067020-bb239.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1067020",
+      "lancamento": "mar/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 44,
+      "nome": "Goku Ssj e Bardock",
+      "linha_produto": "Rising Fighters - Dragon Ball Legends",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/pictures/2021/04/07/2683125.jpeg",
+      "link_mfc": "https://myfigurecollection.net/item/1102112",
+      "lancamento": "jul/20",
+      "observacao": "Sem caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 45,
+      "nome": "Goku Kaioken",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1156561-f7f19.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1156561",
+      "lancamento": "ago/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 46,
+      "nome": "Goku Ssj4",
+      "linha_produto": "FES!!",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1185378-f3f07.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1185378",
+      "lancamento": "set/21",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 47,
+      "nome": "Vegeta Ssj4",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1271125-af9ae.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1271125",
+      "lancamento": "mar/22",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 48,
+      "nome": "Goku Ssj4",
+      "linha_produto": "Tag Fighters",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball GT",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1271126-bdd53.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1271126",
+      "lancamento": "mar/22",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 49,
+      "nome": "Vegeta God",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1455773-666ac.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1455773",
+      "lancamento": "fev/22",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 50,
+      "nome": "Goku God",
+      "linha_produto": "Dokkan Battle",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1455774-f37d6.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1455774",
+      "lancamento": "fev/22",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 51,
+      "nome": "Gohan Ssj",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1670242-a9bca.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1670242",
+      "lancamento": "mar/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 52,
+      "nome": "Goku",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1689159-e9648.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1689159",
+      "lancamento": "mai/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 53,
+      "nome": "Freeza",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1689158-bbd6c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1689158",
+      "lancamento": "mai/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 54,
+      "nome": "Gohan Beast",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1792969-f694c.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1792969",
+      "lancamento": "jul/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 55,
+      "nome": "Vegito Ssj",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1851315-5219f.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1851315",
+      "lancamento": "out/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 56,
+      "nome": "Majin Buu - Gohan Absorvido",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1851314-7e143.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1851314",
+      "lancamento": "out/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 57,
+      "nome": "Vegeta",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1851330-2db48.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1851330",
+      "lancamento": "dez/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 58,
+      "nome": "Goku Kaioken x3",
+      "linha_produto": "Match Makers",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1851331-5c38b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1851331",
+      "lancamento": "dez/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 59,
+      "nome": "Gotenks",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1907787-cfe6b.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1907787",
+      "lancamento": "nov/23",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 60,
+      "nome": "Gogeta Blue",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/1998832-dd0bc.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/1998832",
+      "lancamento": "nov/25",
+      "observacao": "Sem caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 61,
+      "nome": "Vegito Blue",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2021666-d5ecb.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2021666",
+      "lancamento": "nov/25",
+      "observacao": "Com caixa original",
+      "interesse_venda": false
+    },
+    {
+      "id": 62,
+      "nome": "Goku MUI",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Super",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2045596-bd188.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2045596",
+      "lancamento": "abr/24",
+      "observacao": "Com caixa original",
+      "interesse_venda": true
+    },
+    {
+      "id": 63,
+      "nome": "Goku Ssj3",
+      "linha_produto": "Blood of Saiyans",
+      "categoria": "Estátua",
+      "franquia": "Dragon Ball Z",
+      "status": "tenho",
+      "imagem_url": "https://static.myfigurecollection.net/upload/items/1/2048729-d8672.jpg",
+      "link_mfc": "https://myfigurecollection.net/item/2048729",
+      "lancamento": "jun/24",
+      "observacao": "Com caixa original",
       "interesse_venda": false
     }
   ]
