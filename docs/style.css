@@ -96,6 +96,12 @@ body {
   overflow-x: auto;
   padding: 0 20px;
   scrollbar-width: none;
+  /* Trava as abas no topo ao rolar a página — junto com o filtro logo abaixo
+     (ver .figure-filters), fica sempre visível pra trocar de aba/filtrar sem
+     precisar voltar pro topo. */
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 .tab-nav::-webkit-scrollbar { display: none; }
 
@@ -630,6 +636,13 @@ body.dark #logoDark         { display: block !important; }
   background: var(--surface-card);
   border: 1px solid #FFD9A8;
   border-radius: 8px;
+  /* Trava o filtro logo abaixo das abas (que ficam presas no topo, ver .tab-nav) —
+     top precisa bater com a altura real da barra de abas pra não sobrepor nem deixar
+     brecha; os 37px/31px vêm do valor medido da .tab-nav em desktop/mobile. */
+  position: sticky;
+  top: 37px;
+  z-index: 30;
+  box-shadow: 0 4px 10px rgba(0,0,0,.06);
 }
 .filtro-grupo {
   display: flex;
@@ -669,7 +682,7 @@ body.dark #logoDark         { display: block !important; }
 body.dark .figure-filters { border-color: #4a2f10; }
 body.dark .filtro-select   { background: #1e293b; border-color: #334155; color: #f1f5f9; }
 @media (max-width: 600px) {
-  .figure-filters { gap: 8px; padding: 10px; }
+  .figure-filters { gap: 8px; padding: 10px; top: 31px; }
   .filtro-grupo { min-width: 120px; flex: 1 1 120px; }
 }
 

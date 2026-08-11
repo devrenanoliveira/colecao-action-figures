@@ -138,6 +138,7 @@ function initFiltros(status, itens) {
   // Só esconde a barra se a aba estiver vazia — com 1+ item, filtrar já faz sentido
   // (o próprio dono vai cadastrando mais itens e os filtros passam a valer mais).
   if (itensDoStatus.length === 0) {
+    container.className = "";
     container.innerHTML = "";
     renderCards(`grid-${status}`, itensDoStatus, "Nenhum item nesta categoria ainda.");
     return;
@@ -164,15 +165,21 @@ function initFiltros(status, itens) {
       </select>
     </div>`;
 
+  // Importante: a classe "figure-filters" (que trava a barra no topo ao rolar — ver
+  // position:sticky no CSS) vai direto no container (#filtros-${status}), sem um <div>
+  // extra por dentro. Isso porque o sticky só consegue "grudar" enquanto rola dentro
+  // da altura do PAI do elemento — se o pai fosse um <div> só com a barra de filtros
+  // (do mesmo tamanho dela), não sobraria espaço nenhum pra travar. Usando o próprio
+  // container (cujo pai é a aba inteira, bem mais alta) o sticky tem altura de sobra
+  // pra ficar grudado enquanto a lista de baixo rola.
+  container.className = "figure-filters";
   container.innerHTML = `
-    <div class="figure-filters">
       ${campo(`f-franquia-${status}`, "Franquia", franquias)}
       ${campo(`f-linha-${status}`, "Linha", linhas)}
       ${campo(`f-categoria-${status}`, "Categoria", categorias)}
       ${campo(`f-ano-${status}`, "Ano de lançamento", anos)}
       ${campoVenda(`f-venda-${status}`)}
-      <button type="button" class="filtro-limpar" id="f-limpar-${status}">Limpar filtros</button>
-    </div>`;
+      <button type="button" class="filtro-limpar" id="f-limpar-${status}">Limpar filtros</button>`;
 
   const aplicar = () => {
     const vFranquia = document.getElementById(`f-franquia-${status}`).value;
