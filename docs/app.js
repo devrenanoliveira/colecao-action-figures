@@ -152,12 +152,25 @@ function initFiltros(status, itens) {
       </select>
     </div>`;
 
+  // Filtro de "À venda" usa opções fixas (Sim/Não) em vez de valoresUnicos, já que é
+  // um campo booleano — e o rótulo "Todas" não faz sentido aqui, por isso é um campo à parte.
+  const campoVenda = (id) => `
+    <div class="filtro-grupo">
+      <label class="filtro-label" for="${id}">À venda</label>
+      <select id="${id}" class="filtro-select">
+        <option value="">Todos</option>
+        <option value="sim">Só à venda</option>
+        <option value="nao">Só não à venda</option>
+      </select>
+    </div>`;
+
   container.innerHTML = `
     <div class="figure-filters">
       ${campo(`f-franquia-${status}`, "Franquia", franquias)}
       ${campo(`f-linha-${status}`, "Linha", linhas)}
       ${campo(`f-categoria-${status}`, "Categoria", categorias)}
-      ${campo(`f-ano-${status}`, "Ano", anos)}
+      ${campo(`f-ano-${status}`, "Ano de lançamento", anos)}
+      ${campoVenda(`f-venda-${status}`)}
       <button type="button" class="filtro-limpar" id="f-limpar-${status}">Limpar filtros</button>
     </div>`;
 
@@ -166,23 +179,26 @@ function initFiltros(status, itens) {
     const vLinha = document.getElementById(`f-linha-${status}`).value;
     const vCategoria = document.getElementById(`f-categoria-${status}`).value;
     const vAno = document.getElementById(`f-ano-${status}`).value;
+    const vVenda = document.getElementById(`f-venda-${status}`).value;
 
     const filtrados = itensDoStatus.filter((item) => {
       if (vFranquia && item.franquia !== vFranquia) return false;
       if (vLinha && item.linha_produto !== vLinha) return false;
       if (vCategoria && item.categoria !== vCategoria) return false;
       if (vAno && extrairAno(item.lancamento) !== vAno) return false;
+      if (vVenda === "sim" && !item.interesse_venda) return false;
+      if (vVenda === "nao" && item.interesse_venda) return false;
       return true;
     });
 
     renderCards(`grid-${status}`, filtrados, "Nenhum item encontrado com esses filtros.");
   };
 
-  ["franquia", "linha", "categoria", "ano"].forEach((campoId) => {
+  ["franquia", "linha", "categoria", "ano", "venda"].forEach((campoId) => {
     document.getElementById(`f-${campoId}-${status}`).addEventListener("change", aplicar);
   });
   document.getElementById(`f-limpar-${status}`).addEventListener("click", () => {
-    ["franquia", "linha", "categoria", "ano"].forEach((campoId) => {
+    ["franquia", "linha", "categoria", "ano", "venda"].forEach((campoId) => {
       document.getElementById(`f-${campoId}-${status}`).value = "";
     });
     aplicar();
