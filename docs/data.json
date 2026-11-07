@@ -5,7 +5,7 @@
     "tenho": 102,
     "encomendado": 11,
     "quero": 0,
-    "a_venda": 7,
+    "a_venda": 6,
     "por_categoria": {
       "Estátua": 113
     },
@@ -1126,7 +1126,7 @@
       "link_mfc": "https://myfigurecollection.net/item/3108726",
       "lancamento": "abr/26",
       "observacao": "Com caixa original",
-      "interesse_venda": true
+      "interesse_venda": false
     },
     {
       "id": 86,
