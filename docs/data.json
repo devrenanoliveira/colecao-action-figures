@@ -1,11 +1,11 @@
 {
-  "atualizado_em": "07/11/2026 16:19",
+  "atualizado_em": "07/11/2026 16:25",
   "resumo": {
     "total": 113,
     "tenho": 102,
     "encomendado": 11,
     "quero": 0,
-    "a_venda": 10,
+    "a_venda": 8,
     "por_categoria": {
       "Estátua": 113
     },
@@ -47,7 +47,7 @@
       "link_mfc": "https://myfigurecollection.net/item/581738",
       "lancamento": "dez/17",
       "observacao": "Com caixa original",
-      "interesse_venda": true
+      "interesse_venda": false
     },
     {
       "id": 3,
@@ -60,7 +60,7 @@
       "link_mfc": "https://myfigurecollection.net/item/581739",
       "lancamento": "dez/17",
       "observacao": "Com caixa original",
-      "interesse_venda": true
+      "interesse_venda": false
     },
     {
       "id": 4,
