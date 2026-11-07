@@ -1,11 +1,11 @@
 {
-  "atualizado_em": "07/11/2026 16:25",
+  "atualizado_em": "07/11/2026 16:26",
   "resumo": {
     "total": 113,
     "tenho": 102,
     "encomendado": 11,
     "quero": 0,
-    "a_venda": 8,
+    "a_venda": 7,
     "por_categoria": {
       "Estátua": 113
     },
@@ -1113,7 +1113,7 @@
       "link_mfc": "https://myfigurecollection.net/item/3108725",
       "lancamento": "abr/26",
       "observacao": "Com caixa original",
-      "interesse_venda": true
+      "interesse_venda": false
     },
     {
       "id": 85,
