@@ -49,9 +49,26 @@
     clearTimeout(el._t); el._t = setTimeout(() => (el.hidden = true), erro ? 6000 : 3500);
   }
 
+  // Estado real (CSV no GitHub) por id; o data.json público pode estar minutos atrás do último commit.
+  let vendaCsv = {};
+  function lerEstado(arq) {
+    const linhas = b64dec(arq.content).split("\n");
+    const cab = linhas[0].replace("\r", "").split(";").map((c) => c.trim().toLowerCase().replace(/[ _]/g, ""));
+    const col = cab.findIndex((c) => ["interessenavenda", "interessevenda", "venda", "avenda"].includes(c));
+    vendaCsv = {};
+    if (col >= 0) linhas.slice(1).forEach((l, i) => { if (l.trim()) vendaCsv[i + 1] = /^(sim|s|yes|true|1)$/i.test((l.split(";")[col] || "").trim()); });
+  }
+
   function marcarCards(root) {
     root.querySelectorAll(".figure-card:not([data-admin])").forEach((card) => {
       card.dataset.admin = "1";
+      const real = vendaCsv[Number(card.dataset.id)];
+      if (real !== undefined) {
+        const wrap = card.querySelector(".figure-thumb-wrap");
+        const tem = !!card.querySelector(".figure-venda-flag");
+        if (real && !tem) wrap.insertAdjacentHTML("afterbegin", '<div class="figure-venda-flag">À venda</div>');
+        if (!real && tem) card.querySelector(".figure-venda-flag").remove();
+      }
       const b = document.createElement("button");
       b.type = "button"; b.className = "admin-venda-btn";
       b.textContent = card.querySelector(".figure-venda-flag") ? "Tirar da venda" : "Marcar à venda";
@@ -105,9 +122,10 @@
 
   if (token) {
     fetch("data.json?t=" + Date.now()).then((r) => r.json()).then((d) => { dados = d; })
-      .then(() => fetch(API + "?ref=main", { headers: hdr() }))
-      .then((r) => {
+      .then(() => fetch(API + "?ref=main&t=" + Date.now(), { headers: hdr() }))
+      .then(async (r) => {
         if (!r.ok) { try { localStorage.removeItem(KEY); } catch (e) {} token = null; atualizarBtn(); return aviso("Token inválido ou sem permissão — saí do modo admin.", true); }
+        lerEstado(await r.json());
         ligarAdmin();
       });
   }
